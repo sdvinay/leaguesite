@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
+  <title>Free Agent Claim Page</title>
+</head>
+<body>
+<h2 align="center">$$league_name$$</h2>
+<h3 align="center">Free Agent Claim Page</h3>
+<hr>
+<form action="$$_cgi-bin_url$$/fagent.pl" method="post"> <input
+ type="hidden" name="action" value="fagent">
+  <div align="center">
+  <center>
+  <table border="2">
+    <tbody>
+      <tr>
+        <td>Team #</td>
+        <td><input type="text" size="3" name="pteamnum"></td>
+        <td>Password</td>
+        <td><input type="text" size="8" name="password"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+  </div>
+  <p>&nbsp;</p>
+  <div align="center">
+  <center>
+  <table border="1">
+    <caption>Player to claim:</caption> <tbody>
+      <tr>
+        <td>Player #</td>
+        <td><input type="text" size="4" name="fagent"></td>
+      </tr>
+      <tr>
+        <td>Bid Amount</td>
+        <td><input type="text" size="4" name="fabid"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+  </div>
+  <p>&nbsp;</p>
+  <div align="center">
+  <center>
+  <table border="2">
+    <caption valign="top">Players to release, if necessary:</caption> <tbody>
+      <tr>
+        <td>&nbsp;</td>
+        <th valign="bottom">Player #</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><input type="text" size="4" name="pplay0"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="text" size="4" name="pplay1"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="text" size="4" name="pplay2"></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><input type="text" size="4" name="pplay3"></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><input type="text" size="4" name="pplay4"></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><input type="text" size="4" name="pplay5"></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><input type="text" size="4" name="pplay6"></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><input type="text" size="4" name="pplay7"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+  </div>
+  <div align="center">
+  <center>
+  <p>&nbsp;</p>
+  </center>
+  </div>
+  <div align="center">
+  <center> <input type="submit" value="Verify Claim"> <input
+ type="reset"> </center>
+  </div>
+</form>
+<hr>
+</body>
+</html>

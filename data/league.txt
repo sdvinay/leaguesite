@@ -1,0 +1,15 @@
+name~The Three Run Homer League
+season~2002
+salarycap~400
+maxroster~50
+dronepw~gwynn19
+series~00
+duedate~none
+cantrade~1
+canresign~1
+cansign~1
+canrelease~1
+cannewplyr~1
+captrade~1
+canbid~1
+leaguefileurl~http://www3.sympatico.ca/craig.burley/TRHL-PreDraft-NS.zip

@@ -1,0 +1,24 @@
+000:bendan:chicago zephyrs:mark ammer:mammer4@attbi.com:Camden Yard:13:3:101:105
+001:dirk:Jotunheim Giants:Brian Toso:tosobnk@fallsnet.com:Bank One Ballpark:13:1:151:46
+002:rose:Fremont Flames:Tim Levenhagen:11hagen@prodigy.net:Cinergy Field:19:1:287:15
+003:crissy:Pottsville Yuenglings:Joe Dimino & Robert Dudek:joe_dimino@netzero.com,joe.dimino@lmco.com,Robertdudek@yahoo.ca:The Ballpark in Arlington:24:1:313:4
+010:gte682j:Atlanta Arrogants:Louis B:louisb@toast.com:Yankee Stadium:12:0:101:0
+011:tosodj:Minnesota Millionaires:Dean Toso:tosodj@702com.net:Pro Player Stadium:14:4:306:18
+012:anne:Northcoast Pirates:Al Ritz:aritz@rochester.rr.com:Turner Field:9:0:158:0
+013:tinman:Mississauga IceDawgs:Glen Lindsay:gllindsay@sympatico.ca:Dodger Stadium:24:0:150:0
+020:dumdreer:Thunder Bay Chinook:Pat Dolwick:dolberry@worldnet.att.net:Shea Stadium:11:0:117:0
+021:sonya999:Halifax Whitecaps:Craig Burley:craig.burley@sympatico.ca:Coors Field:27:12:272:114
+022:Rabbit:München Marauders:Chris Conley:cjconley@alum.mit.edu:Pac Bell Park:18:23:181:139
+023:cubs08:Mokena Cheeseheads:Matt Sather:packerfan7666@att.net:Oakland Coliseum:20:6:193:49
+100:twins2:Palatine Renegades:Matt Surell:msurell@attbi.com:Skydome:27:0:280:0
+101:e1way1:Mission Bay Monarchs:Vinay Kumar:vinay@baseball.org:Kauffman Stadium:24:24:313:85
+102:gubicza:Burlington FireDogs:Steve Petaci:dawgs@pathcom.com:County Stadium:27:0:307:0
+103:sputnik:Santa Ana Winds:Michael Jacques:mjacques@socal.rr.com:Edison International Field:16:0:328:0
+110:howdy:Springfield Homers:Johnathan Hong:johnathan_h@yahoo.com:Comiskey Park:21:0:240:0
+111:tuxes:Tennessee Tuxedos:Lee Vieron:leevee9950@aol.com:Busch Stadium:26:0:272:0
+112:bababoey:Minnesota Gophers:Aaron Gleeman:AaronGleeman@aol.com:Metrodome:25:14:385:14
+113:8814:Waterfront Hooligans:John Cooper:jt.cooper@comcast.net:Qualcomm Stadium:13:6:296:52
+120:sigpi:Hamilton Sledgehammers:Eric Cernech:ECernech@sbcglobal.net:Jacobs Field:25:1:286:2
+121:teamo:Forsyth Fire Ants:Bill Liming:bill@phillies-fan.com:Minute Maid Park:16:24:216:24
+122:walrus99:Toronto Walrus:Kent Williams:bbcoach@rogers.com:Comerica Park:17:19:221:120
+123:taszarek:Havana Stogies:Marc Welby:marc@plateshack.com:Wrigley Field:13:0:110:0

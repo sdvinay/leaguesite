@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+  <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
+  <title>Resigned Players</title>
+</head>
+<body>
+<h2 align="center">$$league_name$$</h2>
+<h3 align="center">Re-Sign Players Page</h3>
+<hr>
+<form action="$$_cgi-bin_url$$/keepers.pl" method="post"> <input
+ type="hidden" name="action" value="editkeepers">
+  <div align="center">
+  <center>
+  <table border="2">
+    <tbody>
+      <tr>
+        <td>Team #</td>
+        <td><input type="text" size="3" name="teamnum"></td>
+        <td>Password</td>
+        <td><input type="text" size="8" name="password"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+  </div>
+  <div align="center">
+  <center>
+  <center><input type="submit" value="Re-Sign Players"> <input
+ type="reset"></center>
+  </center>
+  </div>
+</form>
+<hr>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+  <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
+  <title>Release Page</title>
+</head>
+<body>
+<h2 align="center">$$league_name$$</h2>
+<h3 align="center">Player Release Page</h3>
+<hr>
+<form action="$$_cgi-bin_url$$/releaseem.pl" method="post"> <input
+ type="hidden" name="action" value="releaseem">
+  <div align="center">
+  <center>
+  <table border="2">
+    <tbody>
+      <tr>
+        <td>Team #</td>
+        <td><input type="text" size="3" name="pteamnum"></td>
+        <td>Password</td>
+        <td><input type="text" size="8" name="password"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+  </div>
+  <div align="center">
+  <center>
+  <table border="2">
+    <caption valign="top">Players to release:</caption> <tbody>
+      <tr>
+        <td>&nbsp;</td>
+        <th valign="bottom">Player #</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><input type="text" size="4" name="pplay0"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="text" size="4" name="pplay1"></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="text" size="4" name="pplay2"></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><input type="text" size="4" name="pplay3"></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><input type="text" size="4" name="pplay4"></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><input type="text" size="4" name="pplay5"></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><input type="text" size="4" name="pplay6"></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><input type="text" size="4" name="pplay7"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+  </div>
+  <div align="center">
+  <center>
+  <p>&nbsp;</p>
+  </center>
+  </div>
+  <div align="center">
+  <center>
+  <p><!--webbot bot="HTMLMarkup" startspan --></p>
+  <center><!--webbot bot="HTMLMarkup" endspan --><input type="submit"
+ value="Verify Releases"> <input type="reset"><!--webbot bot="HTMLMarkup" startspan --></center>
+<!--webbot bot="HTMLMarkup" endspan --> </center>
+  </div>
+</form>
+<hr>
+</body>
+</html>

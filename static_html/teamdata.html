@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+  <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
+  <title>Team Data Edit</title>
+</head>
+<body>
+<h2 align="center">$$league_name$$</h2>
+<h3 align="center">Team Data Edit Page</h3>
+<hr>
+<form action="$$_cgi-bin_url$$/teamdata.pl" method="post"> <input
+ type="hidden" name="action" value="teamdata">
+  <div align="center">
+  <center>
+  <table border="2">
+    <tbody>
+      <tr>
+        <td>Team #</td>
+        <td><input type="text" size="3" name="teamnum"></td>
+        <td>Password</td>
+        <td><input type="text" size="8" name="password"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+  </div>
+  <div align="center">
+  <center>
+  <table border="2">
+    <tbody>
+      <tr>
+        <td>New Password</td>
+        <td><input type="text" size="8" name="newpass"></td>
+      </tr>
+      <tr>
+        <td>New Team Name</td>
+        <td><input type="text" size="30" name="newname"></td>
+      </tr>
+      <tr>
+        <td>New Owner Name</td>
+        <td><input type="text" size="30" name="newowner"></td>
+      </tr>
+      <tr>
+        <td>New E-Mail Address</td>
+        <td><input type="text" size="30" name="newemail"></td>
+      </tr>
+    </tbody>
+  </table>
+  </center>
+  </div>
+  <div align="center">
+  <center>
+  <p><!--webbot bot="HTMLMarkup" startspan --></p>
+  <center><!--webbot bot="HTMLMarkup" endspan --><input type="submit"
+ value="Verify Data"> <input type="reset"><!--webbot bot="HTMLMarkup" startspan --></center>
+<!--webbot bot="HTMLMarkup" endspan --> </center>
+  </div>
+</form>
+<hr>
+</body>
+</html>

@@ -1,0 +1,258 @@
+February 12, 2003 at 23:28:14	101 Mission Bay Monarc	15604	Henderson,Rickey       lf-43	1	0	
+February 12, 2003 at 23:29:08	101 Mission Bay Monarc	15604	Henderson,Rickey       lf-43	1	0	
+February 12, 2003 at 23:50:05	002 Fremont Flames    	24515	Kendall,Jason           c-28	15	0	
+February 12, 2003 at 23:50:05	002 Fremont Flames    	25720	Pujols,Albert          lf-22	40	0	
+February 12, 2003 at 23:50:05	002 Fremont Flames    	25999	Prior,Mark             sp-21	25	0	
+February 12, 2003 at 23:52:19	112 Minnesota Gophers 	12232	Cirillo,Jeff           3b-32	1	0	
+February 13, 2003 at 00:06:13	112 Minnesota Gophers 	24823	Chen,Bruce             mr-25	1	0	
+February 13, 2003 at 00:07:50	112 Minnesota Gophers 	24798	Arrojo,Rolando         mr-33	1	0	
+February 13, 2003 at 00:09:40	112 Minnesota Gophers 	26061	Cash,Kevin              c-24	1	0	
+February 13, 2003 at 00:12:37	112 Minnesota Gophers 	12094	Cedeno,Roger           lf-27	1	0	
+February 13, 2003 at 00:12:37	112 Minnesota Gophers 	25257	Durocher,Jayson        mr-27	1	0	
+February 13, 2003 at 00:12:37	112 Minnesota Gophers 	25569	Duckworth,Brandon      sp-26	1	0	
+February 13, 2003 at 00:12:37	112 Minnesota Gophers 	25860	Donnelly,Brendan       mr-30	1	0	
+February 13, 2003 at 00:12:37	112 Minnesota Gophers 	25991	Crudale,Mike           mr-25	1	0	
+February 13, 2003 at 00:17:14	112 Minnesota Gophers 	13599	Easley,Damion          2b-32	1	0	
+February 13, 2003 at 00:17:14	112 Minnesota Gophers 	13838	Everett,Carl           rf-31	1	0	
+February 13, 2003 at 00:17:14	112 Minnesota Gophers 	14260	Franco,Matt            1b-32	1	0	
+February 13, 2003 at 00:17:14	112 Minnesota Gophers 	16670	Karros,Eric            1b-34	1	0	
+February 13, 2003 at 00:17:14	112 Minnesota Gophers 	24672	Fox,Chad               mr-31	1	0	
+February 13, 2003 at 03:47:07	122 Toronto Walrus    	25601	Hart,Jason             lf-24	1	0	
+February 13, 2003 at 03:47:07	122 Toronto Walrus    	26022	Patterson,John         sp-24	1	0	
+February 13, 2003 at 03:47:07	122 Toronto Walrus    	26041	Hendrickson,Mark       mr-28	1	0	
+February 13, 2003 at 03:47:07	122 Toronto Walrus    	26053	Brazelton,Dewon        sp-22	1	0	
+February 13, 2003 at 03:47:07	122 Toronto Walrus    	26074	Lee,Cliff              sp-23	1	0	
+February 13, 2003 at 03:51:18	122 Toronto Walrus    	21789	Sheffield,Gary         rf-33	20	0	
+February 13, 2003 at 03:51:18	122 Toronto Walrus    	23926	Williams,Bernie        cf-33	10	0	
+February 13, 2003 at 03:51:18	122 Toronto Walrus    	25695	Suzuki,Ichiro          rf-28	20	0	
+February 13, 2003 at 03:51:18	122 Toronto Walrus    	25897	Kearns,Austin          rf-22	20	0	
+February 13, 2003 at 03:51:18	122 Toronto Walrus    	25921	Olivo,Miguel            c-23	1	0	
+February 13, 2003 at 03:54:59	122 Toronto Walrus    	25711	Werth,Jayson           rf-23	1	0	
+February 13, 2003 at 03:54:59	122 Toronto Walrus    	25843	Byrd,Marlon            cf-24	1	0	
+February 13, 2003 at 03:54:59	122 Toronto Walrus    	25903	Lane,Jason             rf-25	1	0	
+February 13, 2003 at 03:54:59	122 Toronto Walrus    	25952	Soriano,Rafael         sp-22	1	0	
+February 13, 2003 at 03:54:59	122 Toronto Walrus    	26046	Bard,Josh               c-24	1	0	
+February 13, 2003 at 03:59:21	122 Toronto Walrus    	12094	Cedeno,Roger           lf-27	2	1	
+February 13, 2003 at 03:59:21	122 Toronto Walrus    	13838	Everett,Carl           rf-31	2	1	
+February 13, 2003 at 03:59:21	122 Toronto Walrus    	25180	Schoeneweis,Scott      mr-28	1	0	
+February 13, 2003 at 03:59:21	122 Toronto Walrus    	25193	Tejera,Michael         mr-25	1	0	
+February 13, 2003 at 03:59:21	122 Toronto Walrus    	25569	Duckworth,Brandon      sp-26	2	1	
+February 13, 2003 at 04:23:47	000 chicago zephyrs   	25999	Prior,Mark             sp-21	40	25	
+February 13, 2003 at 04:24:24	000 chicago zephyrs   	14260	Franco,Matt            1b-32	5	1	
+February 13, 2003 at 04:25:18	000 chicago zephyrs   	25695	Suzuki,Ichiro          rf-28	30	20	
+February 13, 2003 at 04:25:42	003 Pottsville Yuengli	20257	Piazza,Mike             c-33	7	00	
+February 13, 2003 at 04:26:09	000 chicago zephyrs   	25720	Pujols,Albert          lf-22	45	40	
+February 13, 2003 at 04:26:33	003 Pottsville Yuengli	24580	Rolen,Scott            3b-27	7	00	
+February 13, 2003 at 04:27:07	003 Pottsville Yuengli	25611	Hinske,Eric            3b-24	7	0	
+February 13, 2003 at 04:27:44	003 Pottsville Yuengli	21061	Rodriguez,Ivan          c-30	7	0	
+February 13, 2003 at 04:51:28	121 Forsyth Fire Ants 	24485	Graffanino,Tony        3b-30	1	0	
+February 13, 2003 at 04:52:05	121 Forsyth Fire Ants 	24897	Ledee,Ricky            cf-28	1	0	
+February 13, 2003 at 04:56:03	121 Forsyth Fire Ants 	10065	Adams,Terry            mr-29	1	0	
+February 13, 2003 at 04:56:42	121 Forsyth Fire Ants 	24010	Williams,Woody         sp-35	1	0	
+February 13, 2003 at 04:57:49	121 Forsyth Fire Ants 	23983	Williams,Matt          3b-36	1	0	
+February 13, 2003 at 05:01:28	121 Forsyth Fire Ants 	16860	Kile,Darryl            sp-33	1	0	
+February 13, 2003 at 05:01:28	121 Forsyth Fire Ants 	17715	Lopez,Javy              c-31	1	0	
+February 13, 2003 at 05:01:28	121 Forsyth Fire Ants 	24929	Nunez,Vladimir         cl-27	1	0	
+February 13, 2003 at 05:01:28	121 Forsyth Fire Ants 	25621	Lackey,John            sp-23	1	0	
+February 13, 2003 at 05:01:28	121 Forsyth Fire Ants 	25892	Ishii,Kazuhisa         sp-28	1	0	
+February 13, 2003 at 05:04:15	121 Forsyth Fire Ants 	25544	Burroughs,Sean         3b-21	1	0	
+February 13, 2003 at 05:04:15	121 Forsyth Fire Ants 	25838	Blalock,Hank           3b-21	1	0	
+February 13, 2003 at 05:04:15	121 Forsyth Fire Ants 	25929	Phillips,Brandon       2b-21	1	0	
+February 13, 2003 at 05:04:15	121 Forsyth Fire Ants 	26076	Rodriguez,Francisco    mr-20	1	0	
+February 13, 2003 at 05:07:24	121 Forsyth Fire Ants 	25286	Johnson,Nick           1b-23	1	0	
+February 13, 2003 at 05:07:24	121 Forsyth Fire Ants 	25402	Furcal,Rafael          ss-23	1	0	
+February 13, 2003 at 05:07:24	121 Forsyth Fire Ants 	25753	Dunn,Adam              lf-22	1	0	
+February 13, 2003 at 05:09:48	011 Minnesota Milliona	24010	Williams,Woody         sp-35	2	1	
+February 13, 2003 at 05:09:48	011 Minnesota Milliona	25193	Tejera,Michael         mr-25	2	1	
+February 13, 2003 at 05:09:48	011 Minnesota Milliona	25569	Duckworth,Brandon      sp-26	3	2	
+February 13, 2003 at 05:09:48	011 Minnesota Milliona	25621	Lackey,John            sp-23	11	1	
+February 13, 2003 at 05:09:48	011 Minnesota Milliona	25892	Ishii,Kazuhisa         sp-28	2	1	
+February 13, 2003 at 05:10:36	011 Minnesota Milliona	25860	Donnelly,Brendan       mr-30	2	1	
+February 13, 2003 at 05:10:36	011 Minnesota Milliona	25991	Crudale,Mike           mr-25	2	1	
+February 13, 2003 at 05:11:38	011 Minnesota Milliona	25257	Durocher,Jayson        mr-27	2	1	
+February 13, 2003 at 05:19:56	121 Forsyth Fire Ants 	18266	Mayne,Brent             c-34	1	0	
+February 13, 2003 at 05:19:56	121 Forsyth Fire Ants 	24923	Molina,Bengie           c-27	1	0	
+February 13, 2003 at 05:25:35	001 Jotunheim Giants  	25611	Hinske,Eric            3b-24	8	7	
+February 13, 2003 at 05:28:48	001 Jotunheim Giants  	25695	Suzuki,Ichiro          rf-28	35	30	
+February 13, 2003 at 05:28:48	001 Jotunheim Giants  	25720	Pujols,Albert          lf-22	46	45	
+February 13, 2003 at 05:28:48	001 Jotunheim Giants  	25999	Prior,Mark             sp-21	41	40	
+February 13, 2003 at 05:30:10	001 Jotunheim Giants  	25897	Kearns,Austin          rf-22	25	20	
+February 13, 2003 at 05:32:53	121 Forsyth Fire Ants 	25611	Hinske,Eric            3b-24	9	8	
+February 13, 2003 at 05:34:06	121 Forsyth Fire Ants 	21061	Rodriguez,Ivan          c-30	8	7	
+February 13, 2003 at 05:34:22	121 Forsyth Fire Ants 	24580	Rolen,Scott            3b-27	8	7	
+February 13, 2003 at 05:34:47	121 Forsyth Fire Ants 	23926	Williams,Bernie        cf-33	11	10	
+February 13, 2003 at 05:35:08	121 Forsyth Fire Ants 	24010	Williams,Woody         sp-35	3	2	
+February 13, 2003 at 05:36:03	121 Forsyth Fire Ants 	11155	Bonds,Barry            lf-37	1	0	
+February 13, 2003 at 05:41:48	003 Pottsville Yuengli	25464	Lopez,Rodrigo          sp-26	5	0	
+February 13, 2003 at 05:42:31	003 Pottsville Yuengli	25676	Sabathia,C.C.          sp-21	5	0	
+February 13, 2003 at 05:43:09	003 Pottsville Yuengli	23243	Urbina,Ugueth          cl-28	2	0	
+February 13, 2003 at 05:43:43	003 Pottsville Yuengli	25531	Baez,Danys             sp-24	4	0	
+February 13, 2003 at 06:10:47	021 Halifax Whitecaps 	11155	Bonds,Barry            lf-37	100	1	
+February 13, 2003 at 06:12:21	021 Halifax Whitecaps 	25000	Yoshii,Masato          sp-37	3	0	
+February 13, 2003 at 06:13:12	021 Halifax Whitecaps 	25614	Izturis,Cesar          ss-22	1	0	
+February 13, 2003 at 06:14:05	021 Halifax Whitecaps 	25011	Barajas,Rod             c-26	1	0	
+February 13, 2003 at 06:15:10	021 Halifax Whitecaps 	24862	Gonzalez,Alex          ss-25	1	0	
+February 13, 2003 at 06:16:12	021 Halifax Whitecaps 	26041	Hendrickson,Mark       mr-28	2	1	
+February 13, 2003 at 06:18:03	021 Halifax Whitecaps 	25553	Cintron,Alex           2b-23	1	0	
+February 13, 2003 at 06:23:35	021 Halifax Whitecaps 	25264	Figueroa,Nelson        mr-28	1	0	
+February 13, 2003 at 06:23:41	121 Forsyth Fire Ants 	16394	Johnson,Charles         c-30	1	0	
+February 13, 2003 at 06:23:41	121 Forsyth Fire Ants 	18200	Matheny,Mike            c-31	1	0	
+February 13, 2003 at 06:23:41	121 Forsyth Fire Ants 	24543	Mirabelli,Doug          c-31	1	0	
+February 13, 2003 at 06:23:41	121 Forsyth Fire Ants 	25204	Wilson,Vance            c-29	1	0	
+February 13, 2003 at 06:24:40	021 Halifax Whitecaps 	24610	Wright,Jamey           sp-27	1	0	
+February 13, 2003 at 06:25:17	021 Halifax Whitecaps 	24883	Jenkins,Geoff          lf-27	1	0	
+February 13, 2003 at 06:26:43	113 Waterfront Hooliga	13599	Easley,Damion          2b-32	2	1	
+February 13, 2003 at 06:26:52	021 Halifax Whitecaps 	25016	Benson,Kris            sp-27	2	0	
+February 13, 2003 at 06:27:25	113 Waterfront Hooliga	23926	Williams,Bernie        cf-33	15	11	
+February 13, 2003 at 06:28:04	113 Waterfront Hooliga	25676	Sabathia,C.C.          sp-21	6	5	
+February 13, 2003 at 06:28:28	113 Waterfront Hooliga	24580	Rolen,Scott            3b-27	15	8	
+February 13, 2003 at 06:28:35	121 Forsyth Fire Ants 	10420	Bagwell,Jeff           1b-34	1	0	
+February 13, 2003 at 06:28:35	121 Forsyth Fire Ants 	15005	Griffey,Ken            cf-32	1	0	
+February 13, 2003 at 06:28:35	121 Forsyth Fire Ants 	18128	Martinez,Edgar         dh-39	1	0	
+February 13, 2003 at 06:28:35	121 Forsyth Fire Ants 	22217	Sosa,Sammy             rf-33	1	0	
+February 13, 2003 at 06:28:35	121 Forsyth Fire Ants 	25659	Pena,Carlos            1b-24	1	0	
+February 13, 2003 at 06:28:49	021 Halifax Whitecaps 	25072	Glover,Gary            sp-25	1	0	
+February 13, 2003 at 06:29:07	113 Waterfront Hooliga	20257	Piazza,Mike             c-33	10	7	
+February 13, 2003 at 06:29:58	113 Waterfront Hooliga	25286	Johnson,Nick           1b-23	2	1	
+February 13, 2003 at 06:30:28	113 Waterfront Hooliga	12232	Cirillo,Jeff           3b-32	2	1	
+February 13, 2003 at 06:30:51	113 Waterfront Hooliga	24485	Graffanino,Tony        3b-30	2	1	
+February 13, 2003 at 06:31:11	021 Halifax Whitecaps 	23076	Torres,Salomon         sp-30	1	0	
+February 13, 2003 at 06:31:17	113 Waterfront Hooliga	15005	Griffey,Ken            cf-32	5	1	
+February 13, 2003 at 06:31:44	113 Waterfront Hooliga	13838	Everett,Carl           rf-31	3	2	
+February 13, 2003 at 06:32:19	113 Waterfront Hooliga	25611	Hinske,Eric            3b-24	15	9	
+February 13, 2003 at 06:33:02	113 Waterfront Hooliga	25180	Schoeneweis,Scott      mr-28	2	1	
+February 13, 2003 at 06:33:35	113 Waterfront Hooliga	23243	Urbina,Ugueth          cl-28	3	2	
+February 13, 2003 at 06:35:29	121 Forsyth Fire Ants 	15245	Hammond,Chris          mr-36	1	0	
+February 13, 2003 at 06:35:29	121 Forsyth Fire Ants 	15937	Holmes,Darren          mr-36	1	0	
+February 13, 2003 at 06:35:29	121 Forsyth Fire Ants 	25734	Beckett,Josh           sp-22	1	0	
+February 13, 2003 at 06:35:29	121 Forsyth Fire Ants 	26009	Harang,Aaron           sp-24	1	0	
+February 13, 2003 at 06:35:29	121 Forsyth Fire Ants 	26014	Perez,Oliver           sp-20	1	0	
+February 13, 2003 at 06:42:19	121 Forsyth Fire Ants 	20955	Rivera,Mariano         cl-32	1	0	
+February 13, 2003 at 06:42:19	121 Forsyth Fire Ants 	24384	Zeile,Todd             3b-36	1	0	
+February 13, 2003 at 06:42:19	121 Forsyth Fire Ants 	24553	Mueller,Bill           3b-31	1	0	
+February 13, 2003 at 06:42:19	121 Forsyth Fire Ants 	25589	Giles,Marcus           2b-24	1	0	
+February 13, 2003 at 06:42:19	121 Forsyth Fire Ants 	25917	Myers,Brett            sp-21	1	0	
+February 13, 2003 at 07:43:18	120 Hamilton Sledgeham	20257	Piazza,Mike             c-33	11	10	
+February 13, 2003 at 07:43:45	120 Hamilton Sledgeham	25843	Byrd,Marlon            cf-24	2	1	
+February 13, 2003 at 07:44:02	120 Hamilton Sledgeham	10065	Adams,Terry            mr-29	2	1	
+February 13, 2003 at 07:44:49	120 Hamilton Sledgeham	16394	Johnson,Charles         c-30	2	1	
+February 13, 2003 at 07:50:23	112 Minnesota Gophers 	22171	Snow,J.T.              1b-34	1	0	
+February 13, 2003 at 07:50:23	112 Minnesota Gophers 	22236	Sparks,Steve           sp-36	1	0	
+February 13, 2003 at 07:50:23	112 Minnesota Gophers 	22639	Sullivan,Scott         mr-31	1	0	
+February 13, 2003 at 07:50:23	112 Minnesota Gophers 	23358	Veres,Dave             mr-35	1	0	
+February 13, 2003 at 07:50:23	112 Minnesota Gophers 	24159	Womack,Tony            ss-32	1	0	
+February 13, 2003 at 07:52:30	112 Minnesota Gophers 	10176	Alomar,Roberto         2b-34	1	0	
+February 13, 2003 at 07:52:30	112 Minnesota Gophers 	12328	Clemens,Roger          sp-39	1	0	
+February 13, 2003 at 07:52:30	112 Minnesota Gophers 	24842	Drew,J.D.              rf-26	1	0	
+February 13, 2003 at 07:52:30	112 Minnesota Gophers 	25551	Choi,Hee Seop          1b-23	1	0	
+February 13, 2003 at 07:52:30	112 Minnesota Gophers 	25840	Borchard,Joe           lf-23	1	0	
+February 13, 2003 at 08:24:21	121 Forsyth Fire Ants 	23331	Vaughn,Mo              1b-34	1	0	
+February 13, 2003 at 08:24:21	121 Forsyth Fire Ants 	25862	Ellis,Mark             2b-25	1	0	
+February 13, 2003 at 08:44:51	122 Toronto Walrus    	26041	Hendrickson,Mark       mr-28	3	2	
+February 13, 2003 at 08:46:57	122 Toronto Walrus    	15245	Hammond,Chris          mr-36	2	1	
+February 13, 2003 at 08:47:21	122 Toronto Walrus    	25193	Tejera,Michael         mr-25	3	2	
+February 13, 2003 at 08:47:44	122 Toronto Walrus    	24010	Williams,Woody         sp-35	4	3	
+February 13, 2003 at 08:51:08	122 Toronto Walrus    	25180	Schoeneweis,Scott      mr-28	3	2	
+February 13, 2003 at 08:55:37	122 Toronto Walrus    	25771	Kennedy,Joe            sp-23	5	0	
+February 13, 2003 at 08:56:45	122 Toronto Walrus    	25016	Benson,Kris            sp-27	3	2	
+February 13, 2003 at 08:57:33	122 Toronto Walrus    	24842	Drew,J.D.              rf-26	5	1	
+February 13, 2003 at 08:57:53	122 Toronto Walrus    	13838	Everett,Carl           rf-31	4	3	
+February 13, 2003 at 08:58:59	122 Toronto Walrus    	26014	Perez,Oliver           sp-20	2	1	
+February 13, 2003 at 08:59:51	122 Toronto Walrus    	25695	Suzuki,Ichiro          rf-28	40	35	
+February 13, 2003 at 09:41:44	022 München Marauders 	10176	Alomar,Roberto         2b-34	2	1	
+February 13, 2003 at 09:42:09	022 München Marauders 	25838	Blalock,Hank           3b-21	2	1	
+February 13, 2003 at 09:42:30	022 München Marauders 	26053	Brazelton,Dewon        sp-22	2	1	
+February 13, 2003 at 09:42:51	022 München Marauders 	25544	Burroughs,Sean         3b-21	2	1	
+February 13, 2003 at 09:43:10	022 München Marauders 	25734	Beckett,Josh           sp-22	2	1	
+February 13, 2003 at 09:43:38	022 München Marauders 	25753	Dunn,Adam              lf-22	10	1	
+February 13, 2003 at 09:45:28	022 München Marauders 	10065	Adams,Terry            mr-29	5	2	
+February 13, 2003 at 09:45:28	022 München Marauders 	10176	Alomar,Roberto         2b-34	5	2	
+February 13, 2003 at 09:45:28	022 München Marauders 	25734	Beckett,Josh           sp-22	5	2	
+February 13, 2003 at 09:45:28	022 München Marauders 	25838	Blalock,Hank           3b-21	5	2	
+February 13, 2003 at 09:45:28	022 München Marauders 	25840	Borchard,Joe           lf-23	5	1	
+February 13, 2003 at 09:46:41	022 München Marauders 	24842	Drew,J.D.              rf-26	10	5	
+February 13, 2003 at 09:46:41	022 München Marauders 	25551	Choi,Hee Seop          1b-23	5	1	
+February 13, 2003 at 09:46:41	022 München Marauders 	25843	Byrd,Marlon            cf-24	5	2	
+February 13, 2003 at 09:46:41	022 München Marauders 	25991	Crudale,Mike           mr-25	3	2	
+February 13, 2003 at 09:46:41	022 München Marauders 	26061	Cash,Kevin              c-24	2	1	
+February 13, 2003 at 09:47:44	022 München Marauders 	15937	Holmes,Darren          mr-36	3	1	
+February 13, 2003 at 09:47:44	022 München Marauders 	24672	Fox,Chad               mr-31	2	1	
+February 13, 2003 at 09:47:44	022 München Marauders 	25286	Johnson,Nick           1b-23	5	2	
+February 13, 2003 at 09:47:44	022 München Marauders 	25589	Giles,Marcus           2b-24	2	1	
+February 13, 2003 at 09:47:44	022 München Marauders 	26041	Hendrickson,Mark       mr-28	4	3	
+February 13, 2003 at 09:48:44	022 München Marauders 	24553	Mueller,Bill           3b-31	2	1	
+February 13, 2003 at 09:48:44	022 München Marauders 	25464	Lopez,Rodrigo          sp-26	10	5	
+February 13, 2003 at 09:48:44	022 München Marauders 	25897	Kearns,Austin          rf-22	26	25	
+February 13, 2003 at 09:48:44	022 München Marauders 	25921	Olivo,Miguel            c-23	2	1	
+February 13, 2003 at 09:48:44	022 München Marauders 	26074	Lee,Cliff              sp-23	2	1	
+February 13, 2003 at 09:50:00	022 München Marauders 	20257	Piazza,Mike             c-33	20	11	
+February 13, 2003 at 09:50:00	022 München Marauders 	25659	Pena,Carlos            1b-24	5	1	
+February 13, 2003 at 09:50:00	022 München Marauders 	25711	Werth,Jayson           rf-23	2	1	
+February 13, 2003 at 09:50:00	022 München Marauders 	25929	Phillips,Brandon       2b-21	3	1	
+February 13, 2003 at 09:50:00	022 München Marauders 	26014	Perez,Oliver           sp-20	5	2	
+February 13, 2003 at 09:52:35	022 München Marauders 	21061	Rodriguez,Ivan          c-30	25	8	
+February 13, 2003 at 09:52:35	022 München Marauders 	25402	Furcal,Rafael          ss-23	2	1	
+February 13, 2003 at 09:52:35	022 München Marauders 	26022	Patterson,John         sp-24	5	1	
+February 13, 2003 at 09:53:35	022 München Marauders 	25826	Affeldt,Jeremy         mr-23	1	0	
+February 13, 2003 at 10:18:58	000 chicago zephyrs   	25999	Prior,Mark             sp-21	50	41	
+February 13, 2003 at 10:19:39	000 chicago zephyrs   	22217	Sosa,Sammy             rf-33	50	1	
+February 13, 2003 at 10:50:55	023 Mokena Cheeseheads	20130	Perez,Eduardo          rf-32	1	0	
+February 13, 2003 at 10:52:03	112 Minnesota Gophers 	20717	Reed,Rick              sp-36	1	0	
+February 13, 2003 at 10:52:03	112 Minnesota Gophers 	25686	Sheets,Ben             sp-23	1	0	
+February 13, 2003 at 10:52:03	112 Minnesota Gophers 	25687	Shinjo,Tsuyoshi        cf-30	1	0	
+February 13, 2003 at 10:52:03	112 Minnesota Gophers 	25936	Restovich,Michael      lf-23	1	0	
+February 13, 2003 at 10:52:03	112 Minnesota Gophers 	26010	Snelling,Chris         lf-20	1	0	
+February 13, 2003 at 10:52:23	112 Minnesota Gophers 	20594	Radke,Brad             sp-29	1	0	
+February 13, 2003 at 10:52:34	023 Mokena Cheeseheads	19004	Mondesi,Raul           rf-31	1	0	
+February 13, 2003 at 10:56:32	023 Mokena Cheeseheads	19349	Mussina,Mike           sp-33	32	0	
+February 13, 2003 at 10:57:13	023 Mokena Cheeseheads	25840	Borchard,Joe           lf-23	6	5	
+February 13, 2003 at 10:57:41	023 Mokena Cheeseheads	12232	Cirillo,Jeff           3b-32	3	2	
+February 13, 2003 at 10:58:50	023 Mokena Cheeseheads	25544	Burroughs,Sean         3b-21	6	2	
+February 13, 2003 at 10:59:21	023 Mokena Cheeseheads	15245	Hammond,Chris          mr-36	3	2	
+February 13, 2003 at 11:13:43	101 Mission Bay Monarc	20257	Piazza,Mike             c-33	28	20	
+February 13, 2003 at 11:14:12	101 Mission Bay Monarc	25952	Soriano,Rafael         sp-22	2	1	
+February 13, 2003 at 11:14:59	101 Mission Bay Monarc	23983	Williams,Matt          3b-36	2	1	
+February 13, 2003 at 11:15:56	101 Mission Bay Monarc	12328	Clemens,Roger          sp-39	10	1	
+February 13, 2003 at 11:16:14	101 Mission Bay Monarc	25862	Ellis,Mark             2b-25	2	1	
+February 13, 2003 at 11:16:30	101 Mission Bay Monarc	25589	Giles,Marcus           2b-24	3	2	
+February 13, 2003 at 11:16:46	101 Mission Bay Monarc	26009	Harang,Aaron           sp-24	2	1	
+February 13, 2003 at 11:17:23	101 Mission Bay Monarc	15005	Griffey,Ken            cf-32	6	5	
+February 13, 2003 at 11:18:05	101 Mission Bay Monarc	18128	Martinez,Edgar         dh-39	2	1	
+February 13, 2003 at 11:18:37	101 Mission Bay Monarc	25929	Phillips,Brandon       2b-21	4	3	
+February 13, 2003 at 11:18:55	101 Mission Bay Monarc	20955	Rivera,Mariano         cl-32	2	1	
+February 13, 2003 at 11:19:14	101 Mission Bay Monarc	25860	Donnelly,Brendan       mr-30	3	2	
+February 13, 2003 at 11:20:26	101 Mission Bay Monarc	26010	Snelling,Chris         lf-20	2	1	
+February 13, 2003 at 11:21:09	101 Mission Bay Monarc	26022	Patterson,John         sp-24	6	5	
+February 13, 2003 at 11:21:24	101 Mission Bay Monarc	10420	Bagwell,Jeff           1b-34	2	1	
+February 13, 2003 at 11:22:20	101 Mission Bay Monarc	24328	Young,Eric             2b-35	1	0	
+February 13, 2003 at 11:23:34	101 Mission Bay Monarc	25686	Sheets,Ben             sp-23	2	1	
+February 13, 2003 at 11:26:42	101 Mission Bay Monarc	24848	Febles,Carlos          2b-26	1	0	
+February 13, 2003 at 11:29:39	101 Mission Bay Monarc	24507	Jackson,Damian         2b-28	1	0	
+February 13, 2003 at 11:31:51	101 Mission Bay Monarc	24909	Martinez,Ramon         ss-29	1	0	
+February 13, 2003 at 11:33:22	101 Mission Bay Monarc	19101	Mordecai,Mike          ss-34	1	0	
+February 13, 2003 at 11:35:47	101 Mission Bay Monarc	25807	Roberts,Brian          2b-24	1	0	
+February 13, 2003 at 11:39:07	101 Mission Bay Monarc	25713	Wigginton,Ty           3b-24	1	0	
+February 13, 2003 at 11:39:39	021 Halifax Whitecaps 	24909	Martinez,Ramon         ss-29	2	1	
+February 13, 2003 at 11:39:59	112 Minnesota Gophers 	15254	Hampton,Mike           sp-29	1	0	
+February 13, 2003 at 11:39:59	112 Minnesota Gophers 	20344	Plesac,Dan             mr-40	1	0	
+February 13, 2003 at 11:39:59	112 Minnesota Gophers 	25926	Peavy,Jake             sp-21	1	0	
+February 13, 2003 at 11:40:23	101 Mission Bay Monarc	24340	Young,Kevin            1b-33	1	0	
+February 13, 2003 at 11:42:17	101 Mission Bay Monarc	21882	Shumpert,Terry         2b-35	1	0	
+February 13, 2003 at 12:12:48	121 Forsyth Fire Ants 	10350	Astacio,Pedro          sp-32	1	0	
+February 13, 2003 at 12:12:48	121 Forsyth Fire Ants 	15877	Hoffman,Trevor         cl-34	1	0	
+February 13, 2003 at 12:12:48	121 Forsyth Fire Ants 	25093	Jimenez,D'Angelo       2b-24	1	0	
+February 13, 2003 at 12:12:48	121 Forsyth Fire Ants 	25523	Ainsworth,Kurt         sp-23	1	0	
+February 13, 2003 at 12:12:48	121 Forsyth Fire Ants 	25878	Hafner,Travis          dh-25	1	0	
+February 13, 2003 at 12:28:07	121 Forsyth Fire Ants 	18754	Mesa,Jose              cl-36	1	0	
+February 13, 2003 at 12:28:07	121 Forsyth Fire Ants 	24712	Ligtenberg,Kerry       mr-31	1	0	
+February 13, 2003 at 12:28:07	121 Forsyth Fire Ants 	24748	Reese,Pokey            2b-29	1	0	
+February 13, 2003 at 12:28:07	121 Forsyth Fire Ants 	25914	Mench,Kevin            rf-25	1	0	
+February 13, 2003 at 12:28:07	121 Forsyth Fire Ants 	26002	Simontacchi,Jason      sp-28	1	0	
+February 13, 2003 at 12:32:00	121 Forsyth Fire Ants 	24778	Trammell,Bubba         rf-30	1	0	
+February 13, 2003 at 12:38:12	122 Toronto Walrus    	25952	Soriano,Rafael         sp-22	3	2	
+February 13, 2003 at 12:38:41	122 Toronto Walrus    	25676	Sabathia,C.C.          sp-21	7	6	
+February 13, 2003 at 12:39:21	122 Toronto Walrus    	26014	Perez,Oliver           sp-20	6	5	
+February 13, 2003 at 12:39:46	122 Toronto Walrus    	25734	Beckett,Josh           sp-22	6	5	
+February 13, 2003 at 12:40:25	122 Toronto Walrus    	15245	Hammond,Chris          mr-36	4	3	
+February 13, 2003 at 12:40:53	122 Toronto Walrus    	26041	Hendrickson,Mark       mr-28	5	4	
+February 13, 2003 at 12:41:46	122 Toronto Walrus    	20344	Plesac,Dan             mr-40	2	1	

@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+  <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
+  <title>Trade Page</title>
+</head>
+<body>
+<h2 align="center">$$league_name$$</h2>
+<h3 align="center">Trade Page</h3>
+<hr>
+<form action="$$_cgi-bin_url$$/tradeem.pl" method="post"> <input
+ type="hidden" name="action" value="tradeem">
+  <table border="1" align="center">
+    <tbody>
+      <tr>
+        <td>
+        <table border="0">
+          <tbody>
+            <tr>
+              <td>Team #</td>
+              <td><input type="text" size="3" name="pteamnum"></td>
+              <td>Password</td>
+              <td><input type="text" size="8" name="password"></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+        <td width="40%">
+        <table border="0" align="center">
+          <tbody>
+            <tr>
+              <td>Other Team#</td>
+              <td><input type="text" size="3" name="oteamnum"></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <table border="2" align="center">
+          <caption valign="top">Players to trade away:</caption> <tbody>
+            <tr>
+              <td>&nbsp;</td>
+              <th valign="bottom">Player #</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><input type="text" size="4" name="pplay0"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><input type="text" size="4" name="pplay1"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><input type="text" size="4" name="pplay2"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><input type="text" size="4" name="pplay3"></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><input type="text" size="4" name="pplay4"></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><input type="text" size="4" name="pplay5"></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><input type="text" size="4" name="pplay6"></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><input type="text" size="4" name="pplay7"></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+        <td width="40%">
+        <table border="2" align="center">
+          <caption valign="top">Players to receive in trade:</caption> <tbody>
+            <tr>
+              <td>&nbsp;</td>
+              <th valign="bottom">Player #</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><input type="text" size="4" name="oplay0"></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><input type="text" size="4" name="oplay1"></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><input type="text" size="4" name="oplay2"></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><input type="text" size="4" name="oplay3"></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><input type="text" size="4" name="oplay4"></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><input type="text" size="4" name="oplay5"></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><input type="text" size="4" name="oplay6"></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><input type="text" size="4" name="oplay7"></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p align="center"><!--webbot bot="HTMLMarkup" startspan --><!--webbot bot="HTMLMarkup" endspan --><input
+ type="submit" value="Verify Trade"> <input type="reset"><!--webbot bot="HTMLMarkup" startspan --><!--webbot bot="HTMLMarkup" endspan --> </p>
+</form>
+<hr>
+</body>
+</html>
