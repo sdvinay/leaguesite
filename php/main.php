@@ -1,13 +1,14 @@
+<?php 
+require("utils.php"); 
+RecordUserAgent();
+?>
+
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
 
 <head>
   <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
 <title>Main Page</title>
-
-<?php
-require("utils.php");
-?>
 
 </head>
 
