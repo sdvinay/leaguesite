@@ -1,7 +1,7 @@
 #!$$perl_command$$
 
-# $Revision: 1.7 $
-# $Date: 2003/02/27 03:31:12 $
+# $Revision: 1.8 $
+# $Date: 2003/03/01 08:13:08 $
 
 umask(0000);
 
@@ -52,6 +52,7 @@ $htpasswdfile = "$$_data_loc$$/.htpasswd";
 $auctstaturl = $genhtml_url . "/auction.html";
 $availurl	 = $genhtml_url . "/available.html";
 $bidurl      = $statichtml_url . "/bidpage.php";
+$bidhistoryurl = $php_url . "/bidhistory.php";
 
 require $rlfile;
 

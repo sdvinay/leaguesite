@@ -2,8 +2,8 @@
 ##############################################################################
 # Update.pl                                                                  #
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.4 $
-# $Date: 2003/02/26 07:35:14 $
+# $Revision: 1.5 $
+# $Date: 2003/02/27 02:50:45 $
 ##############################################################################
 
 require "includes.pl";
@@ -344,7 +344,8 @@ sub buildavail {
 			}
 			
 			print "<tr>";
-			print "<td>$playnum</td><td>$playname</td>";
+			print "<td>$playnum</td><td><a href=$bidhistoryurl?player=$playnum>$playname</a></td>" unless ($x == 0);
+			print "<td>$playnum</td><td>$playname</td>" if ($x == 0);
 			print "<td>$pteam</td><td>$pteamname</td>" unless ($x == 0);
 			print "<td align=right>$psalary</td>" unless ($x == 0);
 			print "<td><input type=text size=4 name=bid$playnum></td><td><input type=submit value=\"QuickBid\" name=qbid$playnum></td>";
