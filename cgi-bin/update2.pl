@@ -2,8 +2,8 @@
 ##############################################################################
 # Update.pl                                                                  #
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.7 $
-# $Date: 2003-03-05 15:01:57-08 $
+# $Revision: 1.8 $
+# $Date: 2003-03-05 15:05:14-08 $
 ##############################################################################
 
 require "includes.pl";
@@ -17,13 +17,7 @@ require "includes.pl";
 
 ###########################################################################
 sub updateall {
-   $goforit = 0;
-
-   require $rlfile;
-
-   &chktemp;
-
-   if ($goforit) {
+   if (&chktemp()) {
       &updtteams;
       &buildstat;
       &buildavail;
@@ -58,7 +52,7 @@ sub chktemp
    print WAITFILE "$year:$mnth:$mday:$hour:$min:$sec\n";
    close(WAITFILE);
 
-   $goforit = 1;
+   return 1;
 }
 
 
