@@ -1,7 +1,7 @@
 <?php
 
-# $Revision$
-# $Date$
+# $Revision: 1.1 $
+# $Date: 2003-04-15 16:04:53-07 $
 
 require_once("utils.php");
 require_once("teamlist.php");
@@ -20,8 +20,10 @@ $profiler = new Profiler("new PlayerList()");
 $plist = new PlayerList();
 $profiler->Phase("plist->Generate()");
 $plist->Generate(new SimpleFilter("team", $teamnum));
+WriteAsComment($plist->Count());
 $profiler->Phase("create filter");
 $filter = $plist->CreateFilter();
+WriteAsComment(count($filter->pnumlist));
 
 $profiler->Phase("new batlist");
 $batlist = new si_batList();
@@ -161,10 +163,10 @@ while (list($id, $pitchline) = $pitchlist->each())
 	$row++;
 }
 print "</table>\n";
-
-$profiler->PrintTimesHTML();
-
 ?>
+
+<!-- <? $profiler->PrintTimesHTML(); ?> -->
+
 
 <p>Stats courtesy of <a href=http://www.SportsInteractive.com>http://www.SportsInteractive.com</a>
 <? if ($batlist->timestamp) { printf("(%s)", $batlist->timestamp); } ?>

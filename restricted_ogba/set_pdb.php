@@ -1,11 +1,11 @@
 <?php
-# $Revision$
-# $Date$
+# $Revision: 1.1 $
+# $Date: 2003-04-08 17:59:23-07 $
 
-require_once("$$_php_loc$$/utils.php"); 
-require_once("$$_php_loc$$/expenselist.php");
-require_once("$$_php_loc$$/teamlist.php");
-require_once("$$_php_loc$$/pdbtable.php");
+require_once("/home/vinay/trhl/public_html/ogba/utils.php"); 
+require_once("/home/vinay/trhl/public_html/ogba/expenselist.php");
+require_once("/home/vinay/trhl/public_html/ogba/teamlist.php");
+require_once("/home/vinay/trhl/public_html/ogba/pdbtable.php");
 ReadInCGI();
 
 
@@ -43,11 +43,11 @@ if (($DomPDB !== "" ) || ($FrnPDB !== ""))
 <html>
 <head>
   <title>Set PDBs</title>
-  <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
+  <link rel="stylesheet" href="http://trhl.doorstop.net/ogba/css/main.css" type="text/css">
 </head>
 
 <body>
-<center><h2>$$league_name$$</h2>
+<center><h2>Oscar Gamble Baseball Alliance</h2>
 <h3>Set PDBs</h3>
 <h3><?=GetTeamName($teamnum)?></h3></center>
 <hr>

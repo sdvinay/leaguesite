@@ -1,7 +1,7 @@
 <?
 
-# $Revision: 1.3 $
-# $Date: 2003-04-09 17:59:02-07 $
+# $Revision: 1.4 $
+# $Date: 2003-04-15 16:07:02-07 $
 
 require_once("utils.php");
 require_once("listbase.php");
@@ -96,7 +96,7 @@ class PlayerListFilter extends Filter
 	}
 	function Match($playerObj)
 	{
-		return (array_search($playerObj->playernum, $this->pnumlist));
+		return (!is_null(array_search($playerObj->playernum, $this->pnumlist)));
 	}
 }
 
