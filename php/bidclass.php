@@ -30,7 +30,7 @@ class Bid
 	function Printbid()
 	{
 		global $g_bidhistoryurl;
-		printf("%s\t<a href=%s?team=%s>%s %s</a>\t<a href=%s?player=%s>%s\t%s</a>\t%n\t%n\n",
+		printf("%s\t<a href=%s?team=%s>%s %s</a>\t<a href=%s?player=%s>%s\t%s</a>\t%s\t%s\n",
 			$this->date, $g_bidhistoryurl, $this->tnum, $this->tnum, $this->tname, 
 			$g_bidhistoryurl, $this->pnum, $this->pnum, $this->pname, $this->newbidamt, $this->oldbidamt);
 	}
