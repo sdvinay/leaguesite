@@ -1,4 +1,4 @@
-#!$$perl_loc$$ 
+#!$$perl_loc$$
 
 umask(0000);
 
@@ -186,5 +186,16 @@ sub waste {
    print "</center><hr><p>\n";
    print "\$command = \"$command\"";
    print "</body></html>\n";
+}
+
+###########################################################################
+# first arg is username (i.e., team #)
+# second arg is password
+sub UpdateHTAccess
+{
+	$cmd = "/usr/bin/htpasswd -b /home/vinay/trhl/public_html/test/data/.htpasswd $_[0] $_[1]";
+	$ret = system($cmd);
+	if (($ret == -1) || ($ret >> 8)) { return 0; }
+	return 1;
 }
 
