@@ -1,7 +1,7 @@
 #!$$perl_command$$
 
-# $Revision$
-# $Date$
+# $Revision: 1.6 $
+# $Date: 2003/02/26 07:34:47 $
 
 umask(0000);
 
@@ -196,7 +196,7 @@ sub waste {
 # second arg is password
 sub UpdateHTAccess
 {
-	$cmd = "/usr/bin/htpasswd -b /home/vinay/trhl/public_html/test/data/.htpasswd $_[0] $_[1]";
+	$cmd = "$$htpasswd_loc$$ -b $$_data_loc$$/.htpasswd $_[0] $_[1]";
 	$ret = system($cmd);
 	if (($ret == -1) || ($ret >> 8)) { return 0; }
 	return 1;
