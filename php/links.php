@@ -1,6 +1,6 @@
 <?php 
-# $Revision: 1.4 $
-# $Date: 2003/02/26 08:03:27 $
+# $Revision: 1.5 $
+# $Date: 2003/02/27 23:11:29 $
 
 require("utils.php"); 
 ?>
@@ -103,6 +103,7 @@ while (list ($num, $name) = each ($teamnames))
 <h4>File Drone Stuff</h4>
 <p>
 <a href="$$_static_html_url$$/drone.html">File Drone Page</a><br>
+<a href="$$_php_url$$/setleaguefileurl.php">Set League File URL</a><br>
 <a href="$$_static_html_url$$/filedrone.html">File Drone Procedures</a><br>
 </p>
 
