@@ -1,5 +1,5 @@
-# $Revision: 1.4 $
-# $Date: 2003/02/26 07:35:15 $
+# $Revision: 1.5 $
+# $Date: 2003-03-02 18:31:10-08 $
 
 perl_loc=/usr/bin/perl
 sh_loc=/bin/sh
@@ -8,6 +8,7 @@ htpasswd_loc=/usr/bin/htpasswd
 perl_command=$$perl_loc$$ -I$$_cgi-bin_loc$$
 
 league_name=Three Run Homer League
+league_abbr=TRHL
 messageboard_url=http://trhl.doorstop.net/phorum/list.php?f=4
 
 init_script=$$_cgi-bin_loc$$/init_site.pl
