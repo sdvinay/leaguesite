@@ -35,24 +35,6 @@ class Bid
 			$g_bidhistoryurl, $this->pnum, $this->pnum, $this->pname, $this->newbidamt, $this->oldbidamt);
 	}
 	
-	function MatchTeam($team_match)
-	{
-		$match = ($team_match == -1) || ($team_match == $this->tnum);
-		return $match;
-	}
-
-	function MatchPlayer($player_match)
-	{
-		$match = ($player_match == -1) || ($player_match == $this->pnum);
-		return $match;
-	}
-	
-	function Match()
-	{
-		global $team_match, $player_match;
-		$x = $this->MatchTeam($team_match);
-		return ( $x && $this->MatchPlayer($player_match));
-	}
 }
 
 ?>
