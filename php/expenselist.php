@@ -1,7 +1,7 @@
 <?
 
-# $Revision: 1.1 $
-# $Date: 2003-04-02 13:40:25-08 $
+# $Revision: 1.2 $
+# $Date: 2003-04-08 17:56:49-07 $
 
 require_once("utils.php");
 require_once("listbase.php");
@@ -37,20 +37,13 @@ class ExpenseList extends FileBasedList
 		$this->item_class = "Expense";
 	}
 	
-	function Generate()
+	function Generate($filter = NULL)
 	{
-		parent::Generate("expnum");	
+		parent::Generate("expnum", $filter);	
 		list($this->maxnum, $dummy) = $this->end();
 		$this->reset();
 	}
 	
-	function GenerateWithFilter($filter)
-	{
-		parent::GenerateWithIndexAndFilter("expnum", $filter);
-		list($this->maxnum, $dummy) = $this->end();
-		$this->reset();
-	}
-
 	function GetExpense($expnum)
 	{
 		return $this->myArray[$expnum];	

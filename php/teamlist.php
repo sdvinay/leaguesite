@@ -1,7 +1,7 @@
 <?
 
-# $Revision$
-# $Date$
+# $Revision: 1.1 $
+# $Date: 2003-03-24 23:27:13-08 $
 
 require_once("utils.php");
 require_once("listbase.php");
@@ -41,12 +41,18 @@ class TeamList extends FileBasedList
 {
 	function TeamList()
 	{
-		// TODO this refers to teams2.txt
-		$this->datafile_path = "$$_data_loc$$/teams2.txt";
+		$this->datafile_path = "$$_data_loc$$/teams.txt";
 		$this->item_class = "Team";
+		$this->delimiter = ":";
+		$this->format_line = "teamnum:password:teamname:ownername:email:ballpark:plyrsowned:plyrsbid:payrollowned:payrollbid";
 		
 		$this->Generate("teamnum");
 	}
+	
+	// Since the format line is not stored in the file,
+	// override the Init functions (leaving them empty)
+	function InitRead($file) {}
+	function InitWrite($file) {}
 
 	function GetTeam($teamnum)
 	{

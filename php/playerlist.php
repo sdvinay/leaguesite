@@ -1,7 +1,7 @@
 <?
 
-# $Revision$
-# $Date$
+# $Revision: 1.2 $
+# $Date: 2003-04-02 13:41:08-08 $
 
 require_once("utils.php");
 require_once("listbase.php");
@@ -32,20 +32,21 @@ class PlayerList extends FileBasedList
 {
 	function PlayerList()
 	{
-		// TODO this refers to stat2.txt
-		$this->datafile_path = "$$_data_loc$$/stat2.txt";
+		$this->datafile_path = "$$_data_loc$$/stat.txt";
 		$this->item_class = "Player";
+		$this->delimiter = ":";
+		$this->format_line = "playernum:playername:status:team:salary";
 	}
 	
-	function Generate()
+	function Generate($filter = NULL)
 	{
-		parent::Generate("playernum");	
+		parent::Generate("playernum", $filter);	
 	}
-	
-	function GenerateWithFilter($filter)
-	{
-		parent::GenerateWithIndexAndFilter("playernum", $filter);
-	}
+
+	// Since the format line is not stored in the file,
+	// override the Init functions (leaving them empty)
+	function InitRead($file) {}
+	function InitWrite($file) {}
 
 	function GetPlayer($playernum)
 	{
