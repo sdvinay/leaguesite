@@ -1,4 +1,5 @@
 <?
+
 // $Revision: 1.5 $
 // $Date: 2003-04-08 17:57:19-07 $
 
@@ -25,12 +26,17 @@ class ListBase
 	function Count()	{ return count($this->myArray); }
 }
 
+// This class is a dummy defined for lists that don't need
+// specific classes for the list items
+class BasicListItem {}
+
 class FileBasedList extends ListBase
 {
+	
 	var $datafile_path; // should be set by derived class
-	var $item_class; // name of class in list; should be set by derived class
+	var $item_class = "BasicListItem"; // name of class in list; derived class can override
 	var $format_line; // list of fields (used to read and write from file)
-	var $delimiter; // string
+	var $delimiter = ":"; // string
 		
 	// $datafile_path should be set before call to Generate
 	// The filter is optional; a null filter (which matches everything)
@@ -42,8 +48,8 @@ class FileBasedList extends ListBase
 		$this->InitRead($file);
 		// $format_line, $delimiter $item_class must be set by Initialize()
 		$fields = split($this->delimiter, $this->format_line);
-		if (array_search($index_field_name, $fields) === false)
-			trigger_error("Index field specified is not a field in the data file");
+// TODO		if (array_search($index_field_name, $fields) === false)
+//			trigger_error("Index field specified is not a field in the data file");
 		
 		while ($data_line = trim($file->GetLine()))
 		{
@@ -55,6 +61,7 @@ class FileBasedList extends ListBase
 				$field_name = $fields[$i];
 				$obj->$field_name = trim($data_item);
 			}
+			$this->ProcessObj(&$obj);
 			if (is_null($filter) || $filter->Match($obj))
 				$this->myArray[$obj->$index_field_name] = $obj;
 		}
@@ -63,18 +70,21 @@ class FileBasedList extends ListBase
 		$this->reset();
 	}
 	
-	// Assume that format line is the first line, and that
-	//  the delimiter is ":"
+	// Assume that format line is the first line
 	// This can be overridden for any file format that is different
 	//  (i.e., no format line, or comma-separated, etc.)
 	function InitRead($file)
 	{
-		$this->delimiter = ":";
 		$this->format_line = trim($file->GetLine());
 	}
 	
 	// Clean up after reading
 	function EndRead()
+	{
+	}
+	
+	// Do any processing on the obj (calculated values, formatting, etc)
+	function ProcessObj($obj)
 	{
 	}
 	
@@ -93,7 +103,7 @@ class FileBasedList extends ListBase
 			$line = "";
 			foreach ($fields as $field)
 			{
-				if (strlen($line) > 0) $line .= ":";
+				if (strlen($line) > 0) $line .= $this->delimiter;
 				$line .= ($obj->$field);
 			} // iterate each field
 			$fw->WriteLine($line);
