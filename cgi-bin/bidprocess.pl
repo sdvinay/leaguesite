@@ -1,11 +1,11 @@
 #!$$perl_command$$
 ##############################################################################
-# Bidprocess.pl -                                                            #
-# 1. Verify Bids are legal                                                   #
-# 2. Post Bids                                                               #
+# Bidprocess.pl
+# 1. Verify Bids are legal
+# 2. Post Bids
 # Copyright 1997 Gregory A Greenman
-# $Revision$
-# $Date$
+# $Revision: 1.5 $
+# $Date: 2003-02-25 23:34:41-08 $
 ##############################################################################
 use File::Copy;
 
@@ -13,9 +13,6 @@ use File::Copy;
 
 require "includes.pl";
 
-$timeout = 4;
-
-# Done
 ###########################################################################
 
 &parse_form || &waste;
@@ -32,6 +29,7 @@ else { &waste; }
 sub verify {
 	$league{'canbid'} || &error("Sorry, no Bids allowed at this time.");
 
+	&lock;
 	&tmchk;
 	&bidchk;
 	
@@ -118,21 +116,22 @@ sub verify {
 
 	print "</form></center>\n";
 	&printhtmlfooter;
+	
+	&unlock;
 }
 
 
 
 ###########################################################################
 sub submit {
-	&chktemp || &error('???');
+	&lock();
 
 	&tmchk;
 	&bidchk;
-	&gettime;
 	&bidfile;
 	&updtstat;
 	
-	unlink "$btempfile";
+	&unlock();
 	
 	require "$cgi_dir/update2.pl";
 	print "Location: $availurl\n\n";
@@ -180,7 +179,7 @@ sub bidchk {
 	foreach $key (keys(%FORM))
 	{
 		if (($key =~ /^bid(\d+)/ && $FORM{$key} && ($1 > $kMinPlayerNum)) ||
-			($key =~ /qbid(\d+)/ && $FORM{$key} eq "QuickBid"))
+			($key =~ /qbid(\d+)/ && $FORM{$key} eq "QuickBid" && !$FORM{"bid$1"}))
 		{
 			$p = join(":", $1, $FORM{$key});
 			$playarray[$i] = $p;
@@ -308,25 +307,27 @@ sub gettime {
 
    $year = $year + 1900;
 
-   $long_date = "$months[$mon] $mday, $year at $hour\:$min\:$sec";
+   return "$months[$mon] $mday, $year at $hour\:$min\:$sec";
 }
 
 
 
 ###########################################################################
 sub bidfile {
-   open(BFILE, ">>$bfile") || &error('Cannot Open Bid File for Append');
-
-   foreach $player (@playarray) {
-      ($playnum, $bid, $playname, $pstatus, $pteam, $psalary, $errmsg) = split(/:/, $player);
-
-	$xteam = "$team                  ";
-	$xteam = substr($xteam, 0, 18);
-
-      print BFILE "$long_date\t$teamnum $xteam\t$playnum\t$playname\t$bid\t$psalary\t$errmsg\n";
-   }
-
-   close(BFILE);
+	open(BFILE, ">>$bfile") || &error('Cannot Open Bid File for Append');
+	
+	my $long_date = &gettime();
+	foreach $player (@playarray) 
+	{
+		($playnum, $bid, $playname, $pstatus, $pteam, $psalary, $errmsg) = split(/:/, $player);
+		
+		$xteam = "$team                  ";
+		$xteam = substr($xteam, 0, 18);
+		
+		print BFILE "$long_date\t$teamnum $xteam\t$playnum\t$playname\t$bid\t$psalary\t$errmsg\n";
+	}
+	
+	close(BFILE);
 }
 
 
@@ -393,28 +394,3 @@ sub updtstat {
 
    @outbid = sort(@outbid);
 }
-
-
-
-###########################################################################
-sub chktemp {
-   &gettime;
-
-   $scount = 0;
-
-   while (((-e "$atempfile") || (-e "$btempfile")) && ($scount < $timeout)) {
-      sleep 2;
-      $scount++;
-   }
-
-   if ($scount >= $timeout) {
-      &error('Time Out - Try Again Later');
-   }
-
-   open(WAITFILE, ">$btempfile") || &error('Cannot open Wait File for Read/Write');
-   print WAITFILE "$year:$month:$mday:$hour:$min:$sec\n";
-   close(WAITFILE);
-
-   return 1;
-}
-
