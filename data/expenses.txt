@@ -1,0 +1,2 @@
+expnum:teamnum:year:type:amount:label
+1:101:2002:buyout:7:Contract buyout -- Kendall,Jason

@@ -1,0 +1,13 @@
+# $Revision$
+# $Date$
+
+perl_loc=/usr/bin/perl
+sh_loc=/bin/sh
+htpasswd_loc=/usr/bin/htpasswd
+
+perl_command=$$perl_loc$$ -I$$_cgi-bin_loc$$
+
+league_name=Oscar Gamble Baseball Alliance
+messageboard_url=http://trhl.doorstop.net/phorum/list.php?f=4
+
+init_script=$$_cgi-bin_loc$$/init_site.pl
