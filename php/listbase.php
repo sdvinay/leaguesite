@@ -1,4 +1,6 @@
 <?
+// $Revision$
+// $Date$
 
 // Generic list class, used to encapsulate a list
 // Derive off of this to make more complex lists

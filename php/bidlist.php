@@ -1,5 +1,8 @@
 <?
 
+// $Revision$
+// $Date$
+
 require_once("listbase.php");
 require_once("bidclass.php");
 require_once("filters.php");

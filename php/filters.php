@@ -1,5 +1,8 @@
 <?
 
+// $Revision$
+// $Date$
+
 // This is just an interface and shouldn't be called
 class Filter
 {
