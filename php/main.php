@@ -1,4 +1,7 @@
 <?php 
+# $Revision$
+# $Date$
+
 require("utils.php"); 
 RecordUserAgent();
 ?>

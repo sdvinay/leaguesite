@@ -1,8 +1,8 @@
 #!$$perl_command$$
 ##############################################################################
 # notsign.pl - Release players who have not been re-signed                   #
-# Copyright 1997 Gregory A Greenman                                          #
-# Created 02/03/1997              Last Modified 02/02/2003  by vk            #
+# $Revision$
+# $Date$
 ##############################################################################
 # Define Variables
 

@@ -1,17 +1,13 @@
 #!$$perl_command$$
 ##############################################################################
 # Update.pl                                                                  #
-# Copyright 1997 Gregory A Greenman                                          #
-# Created 02/03/1997              Last Modified 12/19/2001  by vk            #
+# Copyright 1997 Gregory A Greenman
+# $Revision$
+# $Date$
 ##############################################################################
-#use File::Copy;
-
-# Define Variables
 
 require "includes.pl";
 
-
-# Done
 ###########################################################################
 
 &updateall;

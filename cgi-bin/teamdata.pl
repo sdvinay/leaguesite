@@ -1,14 +1,13 @@
 #!$$perl_command$$
 ##############################################################################
 # Teamdata.pl - Team Data Verification                                       #
-# Copyright 1997 Gregory A Greenman                                          #
-# Created 02/03/1997              Last Modified 2/26/2003  by vk             #
+# Copyright 1997 Gregory A Greenman
+# $Revision$
+# $Date$
 ##############################################################################
-# Define Variables
 
 require "includes.pl";
 
-# Done
 ###########################################################################
 
 &parse_form || &waste;

@@ -1,8 +1,9 @@
 #!$$perl_command$$
 ##############################################################################
 # Fagent.pl - Enter Free Agent Claims                                        #
-# Copyright 1998 Gregory A Greenman                                          #
-# Created 03/29/1998              Last Modified 12/19/2001  by vk            #
+# Copyright 1997 Gregory A Greenman
+# $Revision$
+# $Date$
 ##############################################################################
 # Define Variables
 

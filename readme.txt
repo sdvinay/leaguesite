@@ -1,5 +1,8 @@
 readme.txt for the TRHL web site installation package
 
+$Revision$
+$Date$
+
 I.     Quick'n'dirty guide to get started
 II.    In-depth explanation of installer
 III.   In-depth explanation of web site scripts

@@ -1,5 +1,8 @@
 <?php
 
+# $Revision$
+# $Date$
+
 // Initialization stuff
 session_start();
 umask(0000);

@@ -1,8 +1,9 @@
 #!$$perl_command$$
 ##############################################################################
-# Auctioneer.pl                                                              #
-# Copyright 1997 Gregory A Greenman                                          #
-# Created 02/03/1997              Last Modified 02/20/2003 by vk             #
+# Auctioneer.pl
+# Copyright 1997 Gregory A Greenman
+# $Revision$
+# $Date$
 ##############################################################################
 use File::Copy;
 

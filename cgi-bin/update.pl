@@ -1,10 +1,10 @@
 #!$$perl_command$$
 ##############################################################################
 # Update.pl                                                                  #
-# Copyright 1997 Gregory A Greenman                                          #
-# Created 02/03/1997              Last Modified 2/21/2003  by vk             #
+# Copyright 1997 Gregory A Greenman
+# $Revision$
+# $Date$
 ##############################################################################
-use File::Copy;
 
 require "includes.pl";
 

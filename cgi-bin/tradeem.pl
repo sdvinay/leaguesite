@@ -1,14 +1,13 @@
 #!$$perl_command$$
 ##############################################################################
 # Tradeem.pl - Verify Trades are legal                                       #
-# Copyright 1997 Gregory A Greenman                                          #
-# Created 02/03/1997              Last Modified 2/13/2003  by vk             #
+# Copyright 1997 Gregory A Greenman
+# $Revision$
+# $Date$
 ##############################################################################
-# Define Variables
 
 require "includes.pl";
 
-# Done
 ###########################################################################
 
 &parse_form || &waste;

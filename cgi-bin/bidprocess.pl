@@ -3,8 +3,9 @@
 # Bidprocess.pl -                                                            #
 # 1. Verify Bids are legal                                                   #
 # 2. Post Bids                                                               #
-# Copyright 1997 Gregory A Greenman                                          #
-# Created 02/03/1997              Last Modified 02/17/2003 by vk             #
+# Copyright 1997 Gregory A Greenman
+# $Revision$
+# $Date$
 ##############################################################################
 use File::Copy;
 

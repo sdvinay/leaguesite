@@ -1,8 +1,8 @@
 #!$$perl_command$$
 ##############################################################################
 # Readleague.pl - Read League Parameters                                     #
-# Copyright 1997 Gregory A Greenman                                          #
-# Created 02/03/1997              Last Modified 02/17/2003 by vk             #
+# $Revision$
+# $Date$
 ##############################################################################
 
 my $leaguefile  = "$data_dir/league.txt";

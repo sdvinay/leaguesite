@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# $Revision$
+# $Date$
+
 prefix="$1"
 if [ $# -lt 2 ]
 then

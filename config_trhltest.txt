@@ -1,5 +1,5 @@
-#if the auctioneer will be run via cgi, set the following to a non-zero value
-webbased_auctioneer=0
+# $Revision$
+# $Date$
 
 perl_loc=/usr/bin/perl
 sh_loc=/bin/sh

@@ -1,5 +1,8 @@
 #!$$perl_command$$
 
+# $Revision$
+# $Date$
+
 umask(0000);
 
 $cgi_dir = "$$_cgi-bin_loc$$";

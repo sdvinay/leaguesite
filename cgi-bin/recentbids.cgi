@@ -1,5 +1,8 @@
 #!$$sh_loc$$
 
+# $Revision$
+# $Date$
+
 echo "Content-type: text/plain"
 echo
 echo

@@ -1,4 +1,9 @@
-<?php require("utils.php"); ?>
+<?php 
+# $Revision$
+# $Date$
+
+require("utils.php"); 
+?>
 
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>

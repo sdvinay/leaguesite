@@ -1,4 +1,9 @@
-<?php require("utils.php"); ?>
+<?php 
+# $Revision$
+# $Date$
+
+require("utils.php"); 
+?>
 
 <html>
 <head>

@@ -1,8 +1,9 @@
 #!$$perl_command$$
 ##############################################################################
 # DroneOn.pl                                                                 #
-# Copyright 1997 Gregory A Greenman                                          #
-# Created 04/09/1998              Last Modified 02/13/2003  by vk            #
+# Copyright 1997 Gregory A Greenman
+# $Revision$
+# $Date$
 ##############################################################################
 use File::Copy;
 
