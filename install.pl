@@ -1,5 +1,10 @@
 #!/usr/bin/perl -w
 
+# install.pl: flexible installer for web applications
+#
+# $Revision$
+# $Date$
+
 use strict;
 use File::Copy;
 
