@@ -1,6 +1,6 @@
 <? 
-// $Revision$
-// $Date$
+// $Revision: 1.3 $
+// $Date: 2003/02/28 20:33:00 $
 
 require("utils.php");
 require("bidclass.php");
@@ -32,13 +32,14 @@ natcasesort ($teamnames);
 reset ($teamnames);
 while (list ($num, $name) = each ($teamnames))
 {
-	echo "<option value=$num>$name ($num)\n";
+	$selected = ($CGI[team] == $num ? "selected" : "" );
+	echo "<option value=$num $selected>$name ($num)\n";
 }
 
 ?></select>
 
 <select name="player">
-<option selected value=-1>All Players
+<option value=-1>All Players
 <?php
 $bids = file("$$_data_loc$$/bids.txt");
 foreach ($bids as $bline)
@@ -50,7 +51,8 @@ natcasesort($bidplayers);
 reset($bidplayers);
 while (list ($num, $name) = each ($bidplayers))
 {
-	echo "<option value=$num>$name ($num)\n";
+	$selected = ($CGI[player] == $num ? "selected" : "" );
+	echo "<option value=$num $selected>$name ($num)\n";
 }
 ?>
 </select>
