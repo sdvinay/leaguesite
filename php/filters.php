@@ -3,7 +3,7 @@
 // This is just an interface and shouldn't be called
 class Filter
 {
-	function Match($obj) // pure virtual
+	function Match($obj) // virtual
 	{
 		return true; // an empty Filter matches everything
 	}
@@ -16,7 +16,6 @@ class SimpleFilter extends Filter
 	
 	function SimpleFilter($attrName, $attrValue)
 	{
-		print ("<!-- attrName=$attrName, attrValue=$attrValue -->\n");
 		$this->attrName = $attrName;
 		$this->attrValue = $attrValue;
 	}
@@ -28,37 +27,59 @@ class SimpleFilter extends Filter
 	}
 }
 
-class AndFilter extends Filter
+// This is a pure virtual class
+// The method ReduceFunc(bool, bool) needs to be implemented
+// ReduceFunc() is the actual composition method
+// Construct a CompositionFilter with an array of filters
+// Match() will iterate over the filters, calling Match()
+//  on each filter, and composing the results with ReduceFunc()
+class CompositionFilter extends Filter
 {
-	var $f1;
-	var $f2;
+	var $filterArray = array();
 	
-	function AndFilter($f1, $f2)
+	function CompositionFilter($array)
 	{
-		$this->f1 = $f1;
-		$this->f2 = $f2;
+		$this->filterArray =& $array; 
+	}
+	
+	function Reduce($runningTotal, $filter, $obj)
+	{
+		return $this->ReduceFunc($runningTotal, $filter->Match($obj));
 	}
 	
 	function Match($obj)
 	{
-		return ($this->f1->Match($obj) && $this->f2->Match($obj));
+		reset($this->filterArray);
+		$filter = current($this->filterArray);
+		$match = $filter ? $filter->Match($obj) : true; // if there are no filters, just return true
+		while ($filter = next($this->filterArray))
+		{
+			$match = $this->Reduce($match, $filter, $obj);
+		}
+		return $match; 
 	}
 }
 
-class OrFilter extends Filter
+class AndFilter extends CompositionFilter
 {
-	var $f1;
-	var $f2;
-	
-	function OrFilter($f1, $f2)
+	function AndFilter($array)
 	{
-		$this->f1 = $f1;
-		$this->f2 = $f2;
+		parent::CompositionFilter($array);
 	}
+
+	function ReduceFunc($v1, $v2)
+	{	return ($v1 && $v2);	}
 	
-	function Match($obj)
+}
+
+class OrFilter extends CompositionFilter
+{
+	function ReduceFunc($v1, $v2)
+	{	return ($v1 || $v2);	}
+	
+	function OrFilter($array)
 	{
-		return ($this->f1->Match($obj) || $this->f2->Match($obj));
+		parent::CompositionFilter($array);
 	}
 }
 
