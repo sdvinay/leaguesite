@@ -13,50 +13,17 @@ require "includes.pl";
 # Done
 ###########################################################################
 
-&parseform;
-
-$command = "$FORM{'action'}";
+&parse_form || &waste;
 
 # first verify the password
 $passwd = "$FORM{'DronePassword'}";
-if ($passwd ne $league{'dronepw'})
-{
-	&error("Incorrect drone password. Go back and try again.");
-}
+($passwd eq $league{'dronepw'}) || &error("Incorrect drone password. Go back and try again.");
 
-if ($command eq "droneon") {
-   &droneon;
-}
-elsif ($command eq "droneprocess") {
-   &droneprocess;
-}
-else {
-   &error("You are wasting my time!");
-}
-
-
-
-###########################################################################
-# Parse Form Subroutine
-
-sub parseform {
-
-   # Get the input
-   read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
-
-   # Split the name-value pairs
-   @pairs = split(/&/, $buffer);
-
-   foreach $pair (@pairs) {
-      ($name, $value) = split(/=/, $pair);
-
-      # Un-Webify plus signs and %-encoding
-      $value =~ tr/+/ /;
-      $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-
-      $FORM{$name} = $value;
-   }
-}
+# dispatch
+$command = "$FORM{'action'}";
+if ($command eq "droneon") { &droneon; }
+elsif ($command eq "droneprocess") { &droneprocess; }
+else { &waste(); }
 
 
 ###########################################################################

@@ -17,47 +17,14 @@ $timeout = 4;
 # Done
 ###########################################################################
 
-if ($ENV{'QUERY_STRING'} ne '') 
-{
-   $command = "$ENV{'QUERY_STRING'}";
-}
-else 
-{
-   &parse_form || &waste;
-   $command = "$FORM{'action'}";
-   $teamnum = $FORM{"teamnum"};
-   $password = $FORM{"password"};
-}
+&parse_form || &waste;
+$command = "$FORM{'action'}";
+$teamnum = $FORM{"teamnum"};
+$password = $FORM{"password"};
 
 if ($command eq "verify") {	&verify; }
 elsif ($command eq "submit") { &submit; }
 else { &waste; }
-
-
-###########################################################################
-# Parse Form Subroutine
-
-sub parse_form {
-
-   # Get the input
-   read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
-
-   # Split the name-value pairs
-   @pairs = split(/&/, $buffer);
-
-   foreach $pair (@pairs) {
-      ($name, $value) = split(/=/, $pair);
-
-      # Un-Webify plus signs and %-encoding
-      $value =~ tr/+/ /;
-      $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-
-      $FORM{$name} = $value;
-   }
-   
-   return 1;
-}
-
 
 
 ###########################################################################

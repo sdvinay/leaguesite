@@ -11,60 +11,12 @@ require "includes.pl";
 # Done
 ###########################################################################
 
-$parsed = 0;
+&parse_form() || &waste();
+$command = "$FORM{'action'}";
 
-if ($ENV{'QUERY_STRING'} ne '') {
-   $command = "$ENV{'QUERY_STRING'}";
-}
-else {
-   &parse_form;
-
-   $parsed = 1;
-
-   $command = "$FORM{'action'}";
-}
-
-if ($parsed) {
-   require $rlfile;
-
-   if ($command eq "editkeepers") {
-      &editkeepers;
-   }
-   elsif ($command eq "postkeepers") {
-      &postkeepers;
-   }
-
-   else {
-      &waste;
-   }
-}
-else {
-   &waste;
-}
-
-
-###########################################################################
-# Parse Form Subroutine
-
-sub parse_form {
-
-   # Get the input
-   read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
-
-   # Split the name-value pairs
-   @pairs = split(/&/, $buffer);
-
-   foreach $pair (@pairs) {
-      ($name, $value) = split(/=/, $pair);
-
-      # Un-Webify plus signs and %-encoding
-      $value =~ tr/+/ /;
-      $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-
-      $FORM{$name} = $value;
-   }
-}
-
+if ($command eq "editkeepers") { &editkeepers; }
+elsif ($command eq "postkeepers") { &postkeepers; }
+else { &waste; }
 
 
 ###########################################################################
@@ -219,18 +171,6 @@ sub postkeepers {
    close(STATFILE);
 
    &editkeepers;
-}
-
-
-
-###########################################################################
-sub waste {
-   print "Content-type: text/html\n\n";
-   print "<html><head><title>Waste</title></head>\n";
-   print "<body><center><h1>You Are Wasting My Time!!!</h1></center>\n";
-   print "</center><hr><p>\n";
-   print "\$command = \"$command\"";
-   print "</body></html>\n";
 }
 
 

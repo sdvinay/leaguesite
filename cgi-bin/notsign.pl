@@ -11,52 +11,10 @@ require "includes.pl";
 # Done
 ###########################################################################
 
-$parsed = 0;
+&parse_form() || &waste();
+$command = "$FORM{'action'}";
 
-if ($ENV{'QUERY_STRING'} ne '') {
-   $command = "$ENV{'QUERY_STRING'}";
-}
-else {
-   &parse_form;
-
-   $parsed = 1;
-
-   $command = "$FORM{'action'}";
-}
-
-if ($parsed) {
-   if ($command == "waiveem") {
-      &waiveem;
-   }
-   else {
-      &error("You are wasting my time");
-   }
-}
-
-
-
-###########################################################################
-# Parse Form Subroutine
-
-sub parse_form {
-
-   # Get the input
-   read(STDIN, $buffer, $ENV{'CONTENT_LENGTH'});
-
-   # Split the name-value pairs
-   @pairs = split(/&/, $buffer);
-
-   foreach $pair (@pairs) {
-      ($name, $value) = split(/=/, $pair);
-
-      # Un-Webify plus signs and %-encoding
-      $value =~ tr/+/ /;
-      $value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-
-      $FORM{$name} = $value;
-   }
-}
-
+($command == "waiveem") ? &waiveem || &waste();
 
 
 ###########################################################################

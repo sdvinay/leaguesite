@@ -131,8 +131,60 @@ sub error {
    print "<h2>Error:</h2><br>\n";
    print "$error\n";
 
+	foreach $key (keys(%ENV))
+	{
+		print "$key => $ENV{$key} <br> \n";
+	}
    print "</body></html>\n";
 
    exit;
+}
+
+###########################################################################
+# Parse Form Subroutine
+
+sub parse_form {
+	my $ignore_empties = ($#_ > 0) ? $_[0] : 1;
+	
+	my $inputstr;
+	my $req_method = $ENV{'REQUEST_METHOD'};
+	if ($req_method eq 'GET') 
+	{
+		$inputstr = $ENV{'QUERY_STRING'};
+	}
+	elsif ($req_method eq 'POST') 
+	{
+		read(STDIN, $inputstr, $ENV{'CONTENT_LENGTH'});
+	}
+	else 
+	{
+		&error("unknown request_method: $req_method");
+	}
+		
+	# Split the name-value pairs
+	@pairs = split(/&/, $inputstr);
+
+	foreach $pair (@pairs) 
+	{
+		($name, $value) = split(/=/, $pair);
+		
+		# Un-Webify plus signs and %-encoding
+		$value =~ tr/+/ /;
+		$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+		
+		if ($ignore_empties || $value) { $FORM{$name} = $value; }
+	}
+	
+	return 1;
+}
+
+###########################################################################
+sub waste {
+   print "Content-type: text/html\n\n";
+   print "<html><head><title>Waste</title></head>\n";
+   print "<body><center><h1>You Are Wasting My Time!!!</h1></center>\n";
+   print "</center><hr><p>\n";
+   print "\$command = \"$command\"";
+   print "</body></html>\n";
 }
 
