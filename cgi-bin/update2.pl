@@ -2,8 +2,8 @@
 ##############################################################################
 # Update.pl                                                                  #
 # Copyright 1997 Gregory A Greenman
-# $Revision$
-# $Date$
+# $Revision: 1.4 $
+# $Date: 2003/02/26 07:35:14 $
 ##############################################################################
 
 require "includes.pl";
@@ -358,9 +358,8 @@ sub buildavail {
 	
 	if ($league{'canbid'})
 	{
-		print "<form name=bidding action=\"$$_cgi-bin_url$$/bidprocess.pl\" method=post>\n";
-		print "Team # <input type=\"text\" size=\"3\" name=\"teamnum\">\n";
-		print "Password <input type=\"text\" size=\"8\" name=\"password\">\n";
+		print "You will be prompted for team # and password after hitting \"Confirm\" or \"Quick Bid\".";
+		print "<form name=bidding action=\"$$_restricted_url$$/redirect_bidprocess.php\" method=post>\n";
 		print "<input type=\"hidden\" name=\"action\" value=\"verify\">\n";
 		print "<input type=submit value=\"Confirm\"> <input type=reset value=\"Clear All Bids\"><br>\n";
 	}
