@@ -1,4 +1,5 @@
 static_html	/home/vinay/trhl/public_html/test	http://trhl.doorstop.net/test	DIRPERM0755
+static_html_trhl	/home/vinay/trhl/public_html/test	http://trhl.doorstop.net/test	DIRPERM0755
 cgi-bin	/home/vinay/trhl/cgi-bin/test	http://trhl.doorstop.net/cgi-bin/test	FILEPERM0755,DIRPERM0755
 data /home/vinay/trhl/public_html/test/data	http://trhl.doorstop.net/test/data NOSUBST,FILEPERM0666,DIRPERM0777
 generated_html	/home/vinay/trhl/public_html/test	http://trhl.doorstop.net/test FILEPERM0666,DIRPERM0777
