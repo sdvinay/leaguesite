@@ -2,8 +2,8 @@
 
 # install.pl: flexible installer for web applications
 #
-# $Revision$
-# $Date$
+# $Revision: 1.5 $
+# $Date: 2003/02/26 07:02:48 $
 
 use strict;
 use File::Copy;
@@ -58,6 +58,16 @@ sub main
 		my $loc = $loc{$virtual};
 		installdir($virtual, $loc) || die ("installation of directory $virtual to $loc failed");
 	}
+	
+	# run the init script
+	if ($config_vars{'init_script'})
+	{
+		my $cmd = $config_vars{'init_script'};
+		&subst_vars($cmd);
+		output("Running init script $cmd");
+		system($cmd);
+	}
+	
 	close (LOGFILE) || die ("file close failed");
 }
 
@@ -222,7 +232,7 @@ sub installfile
 			$indent_level++;
 			while(<SRC>)
 			{
-				while ($subst && s/\$\$([^\$]*)\$\$/$config_vars{$1}/g) { output("var subst: $1=>$config_vars{$1}"); }
+				if ($subst) { &subst_vars($_); }
 				print DEST $_;
 			}
 			if ($perms) { passive_chmod($perms, $destpath); }
@@ -256,6 +266,19 @@ sub readconfigvars
 		}
 	}
 	close(CONFIG) || die ("could not close config file");
+}
+
+# 1st arg should be input string
+# will substitute variables of form $$name$$ with the appropriate config var
+# supports recursive replacement (i.e., the value of a var can contain other vars)
+sub subst_vars
+{
+	# TODO avoid infinite recursion
+	# TODO provide a way to escape literal $$ (perhaps have $$$->$$)
+	while ($_[0] =~ s/\$\$([^\$]*)\$\$/$config_vars{$1}/g) 
+	{ 
+		output("var subst: $1=>$config_vars{$1}"); 
+	}
 }
 
 sub output
