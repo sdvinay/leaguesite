@@ -1,6 +1,6 @@
 <?php 
-# $Revision$
-# $Date$
+# $Revision: 1.3 $
+# $Date: 2003/02/26 07:35:47 $
 
 require("utils.php"); 
 ?>
@@ -15,12 +15,13 @@ require("utils.php");
 <center><h2>$$league_name$$</h2>
 <h3>Long-term Contracts</h3></center>
 <hr><p>
-<ul><b>Notes on contracts:</b>
+<strong>Notes on contracts:</strong>
+<ul>
 <li>All years below refer to statistical seasons.  For instance, we're currently in <?=$LgOptions["season"]?>.
 <li>"Final season" means the contract expires at the end of this season.
 <li>"One more season" means one season in addition to the current season.
 </ul>
-<table border=2>
+<p><table border=2>
 <tr><th>#</th><th>Name</th><th colspan=2>Team that Signed Contract</th><th>Year Signed</th><th colspan=2>Team that Bought Out Contract</th><th>Year Bought Out</th><th>Status</th>
 <?php
 #read the contracts.txt file
@@ -66,7 +67,7 @@ foreach ($lines as $contractline)
 <?
 }
 ?>
-</table>
+</table></p>
 
 <h3>Rules for Contracts </h3>
 
