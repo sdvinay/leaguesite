@@ -1,7 +1,7 @@
 <?php
 
 # $Revision: 1.1 $
-# $Date: 2003-03-24 23:27:13-08 $
+# $Date: 2003-04-02 13:41:39-08 $
 
 require_once("utils.php");
 require_once("teamlist.php");
@@ -37,7 +37,7 @@ $teamObj = $tlist->GetTeam($teamnum);
 <?
 $soldplist = new PlayerList();
 //$filterlist = list(new SimpleFilter("team", $teamnum), new SimpleFilter("status", 5));
-$soldplist->GenerateWithFilter(new SimpleFilter("team", $teamnum));
+$soldplist->Generate(new SimpleFilter("team", $teamnum));
 $i = 0;
 ?>
 <tr><th colspan=8><font size= +2>Players Owned</font></th></tr>
@@ -51,7 +51,7 @@ $i = 0;
 
 <?
 $expenselist = new ExpenseList();
-$expenselist->GenerateWithFilter(new SimpleFilter("teamnum", $teamnum));
+$expenselist->Generate(new SimpleFilter("teamnum", $teamnum));
 
 if ($expenselist->Count() > 0)
 {
