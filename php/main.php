@@ -39,12 +39,17 @@ own a legal copy of DMB version 8.0 and the season being played.</p>
   <table border="1">
     <tr>
       <td align="center">
-        Current Series: <input type="hidden" name=series> Series #<?= $LgOptions["series"] ?>
+        Current Series: #<?= $LgOptions["series"] ?>
       </td>
     </tr>
     <tr>
       <td align="center">
-        Deadline: <input type="hidden" name=duedate> <?= $LgOptions["duedate"] ?>
+        Deadline: <?= $LgOptions["duedate"] ?>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        Current Server Time: <?= strftime("%I:%M:%S%p %Z", time()) ?>
       </td>
     </tr>
   </table>
