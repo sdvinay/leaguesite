@@ -8,7 +8,6 @@
 require "includes.pl";
 
 #generate all the HTML
-print "about to update2\n";
 require "update2.pl";
 
 #populate .htpasswd
