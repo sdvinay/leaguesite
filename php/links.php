@@ -1,6 +1,6 @@
 <?php 
-# $Revision: 1.5 $
-# $Date: 2003/02/27 23:11:29 $
+# $Revision: 1.6 $
+# $Date: 2003/03/03 02:01:00 $
 
 require("utils.php"); 
 ?>
@@ -26,9 +26,8 @@ require("utils.php");
 <a href="$$messageboard_url$$">Message Board</a><br>
 <a href="$$_static_html_url$$/raise.html">Salary Increases</a><br>
 
-<FORM name=teampick>
-<select name="url" onChange='if(this.options[this.selectedIndex].value != "") { top.body.location=this.options[this.selectedIndex].value }'  style="" >
-<option selected>Teams
+<select name="url" onChange='top.body.location=this.options[this.selectedIndex].value'>
+<option value=$$_generated_html_url$$/teams.html>Teams
 <?php
 $teams = file("$$_data_loc$$/teams.txt");
 foreach ($teams as $teamline)
@@ -44,7 +43,7 @@ while (list ($num, $name) = each ($teamnames))
 	echo "<option value=$$_generated_html_url$$/team$num.html>$name\n";
 }
 
-?></select></form>
+?></select>
 </p>
 
 <h4>Draft Stuff</h4>
@@ -59,7 +58,7 @@ while (list ($num, $name) = each ($teamnames))
 	<a href="$$_php_url$$/bidpage.php">Bid Page</a><br>
 <? } ?>
 <a href="$$_data_url$$/sold.txt">Sold Players</a><br>
-<a href="$$_static_html_url$$/bidhistory_frameset.html">Bid History</a><br>
+<a href="$$_php_url$$/bidhistory_frameset.php">Bid History</a><br>
 <a href="$$_cgi-bin_url$$/recentbids.cgi">Recent Bids</a><br>
 </p>
 
