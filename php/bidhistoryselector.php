@@ -1,4 +1,7 @@
 <? 
+// $Revision$
+// $Date$
+
 require("utils.php");
 require("bidclass.php");
 
@@ -6,6 +9,8 @@ ReadInCGI();
 ?>
 <html>
 <head>
+  <title>Filter the Bid History</title>
+  <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
 </head>
 
 <body>
