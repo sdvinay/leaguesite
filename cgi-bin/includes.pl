@@ -1,6 +1,6 @@
-#!$$perl_loc$$
+#!$$perl_loc$$ 
 
-umask(000);
+umask(0000);
 
 $cgi_dir = "$$_cgi-bin_loc$$";
 $cgi_url = "$$_cgi-bin_url$$";
