@@ -4,8 +4,8 @@
 # 1. Verify Bids are legal
 # 2. Post Bids
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.5 $
-# $Date: 2003-02-25 23:34:41-08 $
+# $Revision: 1.6 $
+# $Date: 2003-03-05 17:40:36-08 $
 ##############################################################################
 use File::Copy;
 
@@ -50,6 +50,19 @@ sub verify {
 	$bidnum = $numbid;
 	$unbid = 0;
 	$i = 0;
+	
+	#calculate the expenses for the team
+	$expense_total = 0;	
+	open(EXPENSES, $expense_file) || &error('Could Not Open expense File for Reading');
+	@expenses = <EXPENSES>;
+	close(EXPENSES);
+	shift(@expenses); #skip the format string
+	foreach $eline (@expenses)
+	{
+		($e_expnum, $e_teamnum, $e_year, $e_type, $e_amount, $e_label) = split(/,/, $eline);
+		if ($e_teamnum == $teamnum) { $expense_total += $e_amount; } # TODO also check year
+	}
+	
 
 	foreach $player (@playarray) 
 	{
@@ -73,8 +86,8 @@ sub verify {
 	}
 
 	$bidtot += $unbid;
-	$bavail = $league{'salarycap'} - $cashspent - $cashbid;
-	$aavail = $league{'salarycap'} - $cashspent - $bidtot;
+	$bavail = $league{'salarycap'} - $cashspent - $cashbid - $expense_total;
+	$aavail = $league{'salarycap'} - $cashspent - $bidtot - $expense_total;
 	
 	print "</table><br>\n";
 	
