@@ -1,7 +1,7 @@
 <?php
 
-# $Revision: 1.3 $
-# $Date: 2003/02/26 07:35:58 $
+# $Revision: 1.4 $
+# $Date: 2003/02/27 23:11:48 $
 
 // Initialization stuff
 session_start();
@@ -150,5 +150,6 @@ function ReadInCGI()
 		$CGI{$key} = $value;
 	}
 }
+
 
 ?>
