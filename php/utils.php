@@ -1,7 +1,7 @@
 <?php
 
-# $Revision: 1.7 $
-# $Date: 2003-03-24 23:27:20-08 $
+# $Revision: 1.8 $
+# $Date: 2003-04-08 17:58:10-07 $
 
 // Initialization stuff
 session_start();
@@ -75,5 +75,9 @@ function WriteAsComment($str)
 	print("\n --> \n");
 }
 
+function my_microtime()
+{
+	return array_sum(explode(' ', microtime()));
+}
 
 ?>
