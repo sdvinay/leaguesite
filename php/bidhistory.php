@@ -1,17 +1,16 @@
 <?php 
-# $Revision: 1.4 $
-# $Date: 2003-02-28 12:32:50-08 $
+# $Revision: 1.5 $
+# $Date: 2003-03-14 00:44:59-08 $
 
 require("utils.php"); 
 require("bidclass.php");
+require("bidlist.php");
 require("filters.php");
 
 ReadInCGI();
 
 $team_match = ($CGI['team'] ? $CGI['team'] : -1);
 $player_match = ($CGI['player'] ? $CGI['player'] : -1);
-
-$bids = file("$$_data_loc$$/bids.txt");
 
 ?>
 <html>
@@ -25,26 +24,24 @@ $bids = file("$$_data_loc$$/bids.txt");
 <pre>
 
 <?
-$bidsfound = 0;
 
-$teamFilter = ($team_match == -1) ? new Filter() : new SimpleFilter("tnum", $team_match);
-$playerFilter = ($player_match == -1) ? new Filter() : new SimpleFilter("pnum", $player_match);
-$ourFilter = new AndFilter($teamFilter, $playerFilter);
+$filterList = array();
+if ($team_match != -1) $filterList[] = new SimpleFilter("tnum", $team_match);
+if ($player_match != -1) $filterList[] = new SimpleFilter("pnum", $player_match);
+$ourFilter = new AndFilter($filterList);
 
-foreach ($bids as $bline)
-{
-	$bid = new Bid($bline);
-	
-	if ($ourFilter->Match($bid))
-	{
-		++$bidsfound;
-		$bid->Printbid();
-	}
-}
+$bidlist = new BidList($ourFilter);
 
-if ($bidsfound == 0)
+if ($bidlist->Count() == 0)
 {
 	print("No matching bids.\n");
+}
+else
+{
+	while(list($dummy, $bid) = $bidlist->each())
+	{
+		$bid->PrintBid();
+	}
 }
 ?>
 

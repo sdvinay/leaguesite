@@ -1,9 +1,10 @@
 <? 
-// $Revision: 1.3 $
-// $Date: 2003/02/28 20:33:00 $
+// $Revision: 1.4 $
+// $Date: 2003-03-03 00:27:52-08 $
 
-require("utils.php");
-require("bidclass.php");
+require_once("utils.php");
+require_once("bidclass.php");
+require_once("bidlist.php");
 
 ReadInCGI();
 ?>
@@ -41,10 +42,9 @@ while (list ($num, $name) = each ($teamnames))
 <select name="player">
 <option value=-1>All Players
 <?php
-$bids = file("$$_data_loc$$/bids.txt");
-foreach ($bids as $bline)
+$bidlist = new BidList(new Filter());
+while(list($dummy, $bid) = $bidlist->each())
 {
-	$bid = new Bid($bline);
 	$bidplayers[$bid->pnum] = $bid->pname;
 }
 natcasesort($bidplayers);
