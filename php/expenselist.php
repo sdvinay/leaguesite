@@ -1,7 +1,7 @@
 <?
 
-# $Revision: 1.2 $
-# $Date: 2003-04-08 17:56:49-07 $
+# $Revision: 1.3 $
+# $Date: 2003-04-09 17:56:10-07 $
 
 require_once("utils.php");
 require_once("listbase.php");
@@ -33,8 +33,9 @@ class ExpenseList extends FileBasedList
 	
 	function ExpenseList()
 	{
-		$this->datafile_path = "$$_data_loc$$/expenses.txt";
+		$this->datafile_path = "$$_data_loc$$/expenses.csv";
 		$this->item_class = "Expense";
+		$this->delimiter = ",";
 	}
 	
 	function Generate($filter = NULL)
