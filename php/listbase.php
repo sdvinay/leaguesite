@@ -1,6 +1,8 @@
 <?
-// $Revision: 1.3 $
-// $Date: 2003-03-24 23:41:44-08 $
+// $Revision: 1.4 $
+// $Date: 2003-04-02 13:40:50-08 $
+
+require_once("filewriter.php");
 
 // Generic list class, used to encapsulate a list
 // Derive off of this to make more complex lists
@@ -11,6 +13,7 @@ class ListBase
 {
 	var $myArray = array();
 	
+	function reset()	{ return reset($this->myArray); }
 	function current()	{ return current($this->myArray); }
 	function each()		{ return each($this->myArray); }
 	function next()		{ return next($this->myArray); }
@@ -25,12 +28,15 @@ class FileBasedList extends ListBase
 {
 	var $datafile_path; // should be set by derived class
 	var $item_class; // name of class in list; should be set by derived class
-	
+	var $format_line; // colon-delimited list of fields (read from file, 
+		// used when writing back to file)
+		
 	function Generate($index_field_name)
 	{
 		$lines = @file($this->datafile_path);
 		list($dummy, $format_line) = each($lines);
-		$fields  = split(":", trim($format_line));
+		$this->format_line = trim($format_line);
+		$fields  = split(":", $this->format_line);
 		
 		while (list($dummy, $data_line) = each($lines))
 		{
@@ -40,17 +46,19 @@ class FileBasedList extends ListBase
 			while (list($i, $data_item) = each($data_as_list))
 			{
 				$field_name = $fields[$i];
-				$obj->$field_name = $data_item;
+				$obj->$field_name = trim($data_item);
 			}
 			$this->myArray[$obj->$index_field_name] = $obj;
 		}
+		$this->reset();
 	}
 
 	function GenerateWithIndexAndFilter($index_field_name, $filter)
 	{
 		$lines = @file($this->datafile_path);
 		list($dummy, $format_line) = each($lines);
-		$fields  = split(":", trim($format_line));
+		$this->format_line = trim($format_line);
+		$fields  = split(":", $this->format_line);
 		
 		while (list($dummy, $data_line) = each($lines))
 		{
@@ -65,6 +73,44 @@ class FileBasedList extends ListBase
 			if ($filter->Match($obj))
 				$this->myArray[$obj->$index_field_name] = $obj;
 		}
+		$this->reset();
+	}
+	
+	// iterate over list, writing each to file
+	// resets the internal pointer
+	function Write()
+	{
+		$fw = new FileWriter($this->datafile_path);
+		$fw->WriteLine($this->format_line);
+		$fields = split(":", $this->format_line);
+		$this->reset();
+		while (list($dummy, $obj) = $this->each())
+		{
+			$line = "";
+			foreach ($fields as $field)
+			{
+				if (strlen($line) > 0) $line .= ":";
+				$line .= ($obj->$field);
+			} // iterate each field
+			$fw->WriteLine($line);
+		} // iterate each obj in array
+		$fw->Close();
+		$this->reset();
+	}
+	
+	// returns a list of all objects in the array that match $filter
+	// resets the internal pointer
+	function Find($filter)
+	{
+		$this->reset();
+		$ret = array();
+		while (list($index, $obj) = $this->Each())
+		{
+			if ($filter->Match($obj))
+				$ret[$index] = $obj;
+		}
+		$this->reset();
+		return $ret;
 	}
 }
 
