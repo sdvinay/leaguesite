@@ -1,7 +1,7 @@
 /* 
 main.css: main style definitions for leaguesite 
-$Revision: 1.4 $
-$Date: 2003-03-02 18:04:39-08 $
+$Revision: 1.5 $
+$Date: 2003-03-03 00:17:35-08 $
 */
 
 body
@@ -20,12 +20,14 @@ p, h1, h2, h3, h4, h5, h6
 .leftnav p
 {
 	margin-left: 1em;
+	margin-right: 0;
 	margin-top: 0;
 	margin-bottom: 5px;
 }
 .leftnav h4 
 { 
 	margin-left: 0;
+	margin-right: 0;
 	margin-top: 0;  
 	margin-bottom: 0;
 	padding-left: 1em;
