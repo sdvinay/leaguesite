@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# $Revision$
-# $Date$
+# $Revision: 1.2 $
+# $Date: 2003/02/26 07:36:02 $
 
 prefix="$1"
 if [ $# -lt 2 ]
@@ -13,7 +13,7 @@ fi
 
 if [ -d $prefix/RCS ]
 then
-	for i in `/bin/ls $prefix`
+	for i in `/bin/ls -A $prefix`
 	do
 		if [ -d $prefix/$i ] && [ $i != RCS ]
 		then
