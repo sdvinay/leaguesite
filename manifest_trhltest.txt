@@ -5,3 +5,4 @@ generated_html	/home/vinay/trhl/public_html/test	http://trhl.doorstop.net/test F
 images	/home/vinay/trhl/public_html/test/images	http://trhl.doorstop.net/test/images NOSUBST,DIRPERM0755
 php	/home/vinay/trhl/public_html/test	http://trhl.doorstop.net/test	DIRPERM0755
 css	/home/vinay/trhl/public_html/test/css	http://trhl.doorstop.net/test/css	DIRPERM0755 
+restricted	/home/vinay/trhl/public_html/test/restricted	http://trhl.doorstop.net/test/restricted	DIRPERM0755 
