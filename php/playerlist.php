@@ -1,7 +1,7 @@
 <?
 
-# $Revision: 1.2 $
-# $Date: 2003-04-02 13:41:08-08 $
+# $Revision: 1.3 $
+# $Date: 2003-04-09 17:59:02-07 $
 
 require_once("utils.php");
 require_once("listbase.php");
@@ -52,6 +52,23 @@ class PlayerList extends FileBasedList
 	{
 		return $this->myArray[$playernum];	
 	}
+	
+	// Returns a filter which will match any player obj
+	// that is in this PlayerList (actually, it will
+	// match any obj which has a playernum that matches any
+	// player in this list).  If $this changes, the filter
+	// will NOT automatically update with it.
+	// resets the internal pointer
+	function CreateFilter()
+	{
+		$pnumlist = array();
+		$this->reset();
+		while(list($dummy, $playerObj) = $this->each())
+		{
+			$pnumlist[] = $playerObj->playernum;
+		}
+		return (new PlayerListFilter($pnumlist));
+	}
 }
 
 function GetPlayerName($playernum)
@@ -65,6 +82,22 @@ function GetPlayerName($playernum)
 	
 	$player = $plist->GetPlayer($playernum);
 	return $player->playername;
+}
+
+// Constructed with a list of playernums, this filter
+// will match any obj which has a playernum in pnumlist
+// Intended to be constructed by PlayerList::CreateFilter()
+class PlayerListFilter extends Filter
+{
+	var $pnumlist;
+	function PlayerListFilter($pnumlist)
+	{
+		$this->pnumlist = $pnumlist;
+	}
+	function Match($playerObj)
+	{
+		return (array_search($playerObj->playernum, $this->pnumlist));
+	}
 }
 
 ?>
