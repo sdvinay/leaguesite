@@ -1,16 +1,23 @@
 <?php 
-# $Revision$
-# $Date$
+# $Revision: 1.1 $
+# $Date: 2003/03/01 07:34:33 $
 
 require("utils.php"); 
 ReadInCGI();
 
-if($CGI{'leaguefileurl'})
+if($CGI{'dronepw'} == $LgOptions{'dronepw'})
 {
-	$LgOptions{'leaguefileurl'} = $CGI{'leaguefileurl'};
-	if (!isset($CGI{'isprotected'})) { /* TODO error */ }
-	$LgOptions{'leaguefileprotected'} = $CGI{'isprotected'};
-	WriteLeagueOptions(); // TODO error
+	if($CGI{'leaguefileurl'})
+	{
+		$LgOptions{'leaguefileurl'} = $CGI{'leaguefileurl'};
+		if (!isset($CGI{'isprotected'})) { /* TODO error */ }
+		$LgOptions{'leaguefileprotected'} = $CGI{'isprotected'};
+		WriteLeagueOptions(); // TODO error
+		$optionsset = 1;
+	}
+} else if ($CGI{'dronepw'})
+{
+	$pwerror = 1;
 }
 ?>
 
@@ -23,9 +30,17 @@ if($CGI{'leaguefileurl'})
 <body>
 <center><h2>$$league_name$$</h2>
 <h3>League File Link</h3></center>
-<hr><p>
-
+<hr>
+<? if ($optionsset) { ?>
+<h4>The league file URL options have been set.</h4>
+<p>You can review them below and edit them if necessary.</p>
+<? } ?>
 <form name=leaguefilelink method=post action="<?=$_SERVER{'REQUEST_URI'}?>">
+<p <?= $pwerror ? "class=alert" : "" ?>>
+<?= $pwerror ? "You did not enter the correct drone password. Please try again." : "Enter the drone password:" ?>
+<br>
+<input type=text size=12 name=dronepw>
+</p>
 <p>
 Edit the URL for the league file:<br>
 <input type=text size=80 name=leaguefileurl value=<?=$LgOptions{'leaguefileurl'}?>>
