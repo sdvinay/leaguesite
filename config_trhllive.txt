@@ -3,6 +3,8 @@ webbased_auctioneer=0
 
 perl_loc=/usr/bin/perl
 sh_loc=/bin/sh
+htpasswd_loc=/usr/bin/htpasswd
 
 league_name=Three Run Homer League
 messageboard_url=http://trhl.doorstop.net/phorum/list.php?f=4
+
