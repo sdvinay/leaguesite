@@ -1,7 +1,8 @@
 <?
-// $Revision: 1.4 $
-// $Date: 2003-04-02 13:40:50-08 $
+// $Revision: 1.5 $
+// $Date: 2003-04-08 17:57:19-07 $
 
+require_once("filereader.php");
 require_once("filewriter.php");
 
 // Generic list class, used to encapsulate a list
@@ -28,61 +29,64 @@ class FileBasedList extends ListBase
 {
 	var $datafile_path; // should be set by derived class
 	var $item_class; // name of class in list; should be set by derived class
-	var $format_line; // colon-delimited list of fields (read from file, 
-		// used when writing back to file)
+	var $format_line; // list of fields (used to read and write from file)
+	var $delimiter; // string
 		
-	function Generate($index_field_name)
+	// $datafile_path should be set before call to Generate
+	// The filter is optional; a null filter (which matches everything)
+	//   is used if none is specified
+	// Derived class may overwrite InitRead() and EndRead()
+	function Generate($index_field_name, $filter = NULL)
 	{
-		$lines = @file($this->datafile_path);
-		list($dummy, $format_line) = each($lines);
-		$this->format_line = trim($format_line);
-		$fields  = split(":", $this->format_line);
+		$file = new FileReader($this->datafile_path);
+		$this->InitRead($file);
+		// $format_line, $delimiter $item_class must be set by Initialize()
+		$fields = split($this->delimiter, $this->format_line);
+		if (array_search($index_field_name, $fields) === false)
+			trigger_error("Index field specified is not a field in the data file");
 		
-		while (list($dummy, $data_line) = each($lines))
+		while ($data_line = trim($file->GetLine()))
 		{
-			trim ($data_line);
-			$data_as_list = split(":", $data_line);
+			$data_as_list = split($this->delimiter, $data_line);
 			$obj = new $this->item_class;
-			while (list($i, $data_item) = each($data_as_list))
+			while ( (list($i, $data_item) = each($data_as_list)) &&
+					($i < count($data_as_list)) )
 			{
 				$field_name = $fields[$i];
 				$obj->$field_name = trim($data_item);
 			}
-			$this->myArray[$obj->$index_field_name] = $obj;
-		}
-		$this->reset();
-	}
-
-	function GenerateWithIndexAndFilter($index_field_name, $filter)
-	{
-		$lines = @file($this->datafile_path);
-		list($dummy, $format_line) = each($lines);
-		$this->format_line = trim($format_line);
-		$fields  = split(":", $this->format_line);
-		
-		while (list($dummy, $data_line) = each($lines))
-		{
-			trim ($data_line);
-			$data_as_list = split(":", $data_line);
-			$obj = new $this->item_class;
-			while (list($i, $data_item) = each($data_as_list))
-			{
-				$field_name = $fields[$i];
-				$obj->$field_name = $data_item;
-			}
-			if ($filter->Match($obj))
+			if (is_null($filter) || $filter->Match($obj))
 				$this->myArray[$obj->$index_field_name] = $obj;
 		}
+		$this->EndRead($file);
+		$file->Close();
 		$this->reset();
 	}
 	
-	// iterate over list, writing each to file
-	// resets the internal pointer
+	// Assume that format line is the first line, and that
+	//  the delimiter is ":"
+	// This can be overridden for any file format that is different
+	//  (i.e., no format line, or comma-separated, etc.)
+	function InitRead($file)
+	{
+		$this->delimiter = ":";
+		$this->format_line = trim($file->GetLine());
+	}
+	
+	// Clean up after reading
+	function EndRead()
+	{
+	}
+	
+	// Iterate over list, writing each to file
+	// Resets the internal pointer
+	// Derived class may override InitWrite() and EndWrite()
 	function Write()
 	{
 		$fw = new FileWriter($this->datafile_path);
-		$fw->WriteLine($this->format_line);
-		$fields = split(":", $this->format_line);
+		$this->InitWrite($fw);
+
+		$fields = split($this->delimiter, $this->format_line);
 		$this->reset();
 		while (list($dummy, $obj) = $this->each())
 		{
@@ -94,8 +98,24 @@ class FileBasedList extends ListBase
 			} // iterate each field
 			$fw->WriteLine($line);
 		} // iterate each obj in array
+
+		$this->EndWrite();
 		$fw->Close();
 		$this->reset();
+	}
+	
+	// Assume that format_line should be written as first line
+	//  of file
+	// Should be overridden by derived classes that don't store 
+	//  format line in first line of file
+	function InitWrite($fw)
+	{
+		$fw->WriteLine($this->format_line);
+	}
+	
+	// Override if any cleanup is needed
+	function EndWrite($fw)
+	{
 	}
 	
 	// returns a list of all objects in the array that match $filter
