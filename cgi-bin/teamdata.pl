@@ -136,7 +136,12 @@ sub updtteams {
 
       chomp($cbid);
 
-      if ($teamnum eq $FORM{'teamnum'}) {
+      if ($teamnum eq $FORM{'teamnum'}) 
+      {
+      	if ($passwd ne $FORM{'newpass'})
+      	{
+      		&UpdateHTAccess($teamnum, $FORM{'newpass'});
+      	}
          $passwd = $FORM{'newpass'};
          $teamname = $FORM{'newname'};
          $manager = $FORM{'newowner'};
@@ -177,5 +182,15 @@ sub tmchk {
          last tloop;
       }
    }
+}
+
+# first arg is username (i.e., team #)
+# second arg is password
+sub UpdateHTAccess
+{
+	$cmd = "/usr/bin/htpasswd -b /home/vinay/trhl/public_html/test/data/.htaccess $_[0] $_[1]";
+	$ret = system($cmd);
+	if (($ret == -1) || ($ret >> 8)) { &error("failure to update passwd in .htaccess"); }
+	return 0;
 }
 
