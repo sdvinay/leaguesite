@@ -3,9 +3,9 @@
  //   displays two frames, the selector and the bid history
  //   if there is a query string, use that as the initial state of the history
  //   if no query string, then don't display a history
- // $Revision$
- // $Date$
-require("utils.php");
+ // $Revision: 1.1 $
+ // $Date: 2003-03-03 00:27:04-08 $
+require_once("utils.php");
 
 $selectorurl = "$$_php_url$$/bidhistoryselector.php?target=biddisplay&" . $_SERVER['QUERY_STRING'];
 $displayurl = $_SERVER['QUERY_STRING'] ?   ("$$_php_url$$/bidhistory.php?" . $_SERVER['QUERY_STRING'] ) : "" ;

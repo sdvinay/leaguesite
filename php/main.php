@@ -1,8 +1,8 @@
 <?php 
-# $Revision$
-# $Date$
+# $Revision: 1.4 $
+# $Date: 2003-02-25 23:35:53-08 $
 
-require("utils.php"); 
+require_once("utils.php"); 
 RecordUserAgent();
 ?>
 

@@ -1,8 +1,8 @@
 <?php 
-# $Revision: 1.1 $
-# $Date: 2003/03/01 07:34:33 $
+# $Revision: 1.2 $
+# $Date: 2003-03-02 18:01:13-08 $
 
-require("utils.php"); 
+require_once("utils.php"); 
 ReadInCGI();
 
 if($CGI{'dronepw'} == $LgOptions{'dronepw'})

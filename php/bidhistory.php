@@ -1,11 +1,11 @@
 <?php 
-# $Revision: 1.5 $
-# $Date: 2003-03-14 00:44:59-08 $
+# $Revision: 1.6 $
+# $Date: 2003-03-14 16:58:39-08 $
 
-require("utils.php"); 
-require("bidclass.php");
-require("bidlist.php");
-require("filters.php");
+require_once("utils.php"); 
+require_once("bidclass.php");
+require_once("bidlist.php");
+require_once("filters.php");
 
 ReadInCGI();
 

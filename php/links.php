@@ -1,8 +1,8 @@
 <?php 
-# $Revision: 1.6 $
-# $Date: 2003/03/03 02:01:00 $
+# $Revision: 1.7 $
+# $Date: 2003-03-05 02:57:29-08 $
 
-require("utils.php"); 
+require_once("utils.php"); 
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
