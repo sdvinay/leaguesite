@@ -2,8 +2,8 @@
 ##############################################################################
 # Update.pl
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.10 $
-# $Date: 2003-03-05 15:16:20-08 $
+# $Revision: 1.11 $
+# $Date: 2003-03-05 15:24:10-08 $
 ##############################################################################
 
 require "includes.pl";
@@ -100,7 +100,6 @@ sub updtteams {
 		$tline = join(":", $teamnum, $passwd, $teamname, $towner, $temail,$tstad,
 			int($tplown[$teamnum]), int($tplbid[$teamnum]), int($tspent[$teamnum]), int($tbid[$teamnum]));
 		print TEAMFILE "$tline\n";		
-#		print TEAMFILE "$teamnum:$passwd:$teamname:$towner:$temail:$tstad:$tplown[$teamnum]:$tplbid[$teamnum]:$tspent[$teamnum]:$tbid[$teamnum]\n";
 	}
 
 	close(TEAMFILE);
@@ -115,7 +114,6 @@ sub buildstat {
 
    foreach $teamline (@tlines) {
       ($teamnum, $passwd, $teamname, $towner, $temail, $tstad, $tplown, $tplbid, $tspent, $tbid) = split(/:/, $teamline);
-
       $team{$teamnum} = $teamname;
    }
 
@@ -123,23 +121,15 @@ sub buildstat {
    @slines = <STATFILE>;
    close(STATFILE);
 
-   $i = 0;
+	foreach $sline (@slines) 
+	{
+		#intentionally retain the newline, since we're joining the fields back together
+		($playnum, $playname, $pstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec) = split(/:/, $sline);
+		$dstatus = ($pstatus == 6) ? 5 : $pstatus;	
+		push @alines, join(":", $playname, $playnum, $dstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec);
+	}
 
-   foreach $sline (@slines) {
-      ($playnum, $playname, $pstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec) = split(/:/, $sline);
-
-      if ($pstatus == 6) {
-         $dstatus = 5;
-      }
-      else {
-         $dstatus = $pstatus;
-      }
-
-      $alines[$i] = join(":", $playname, $playnum, $dstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec);
-      $i++;
-   }
-
-   @alines = sort(@alines);
+	@alines = sort(@alines);
 
 
    open(STATHTML, ">$stathtml") || &error('Could not open stat html file for read/write');
@@ -201,11 +191,12 @@ sub buildavail {
 	@slines = <STATFILE>;
 	close(STATFILE);
 
-	foreach $sline (@slines) {
+	foreach $sline (@slines) 
+	{
+		#intentionally retain the newline, since we're joining the fields back together
 		($playnum, $playname, $pstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec) = split(/:/, trim($sline) );
 		$dstatus = ($pstatus == 6) ? 5 : $pstatus;
-		$alines[$i] = join(":", $dstatus, $playname, $playnum, $pstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec);
-		$i++;
+		push @alines, join(":", $dstatus, $playname, $playnum, $pstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec);
 	}
 
 	@alines = sort(@alines);
@@ -505,9 +496,7 @@ sub buildclaims {
    }
 
    print "</table></center>\n";
-
    &prnt_pfooter;
-
    select(STDOUT);
 
    close(FACLAIM);
@@ -544,7 +533,7 @@ sub updtteamhtml {
    close(DIVFILE);
    for ($i = 0; $i < 6; $i++)
    {
-       chomp $divlines[$i];
+       trim $divlines[$i];
        $div[$i]  = [ split(",", $divlines[$i]) ];
    }
 
@@ -632,31 +621,20 @@ sub updtteampgs {
    @slines = <STATFILE>;
    close(STATFILE);
 
-   $i = 0;
+	foreach $statline (@slines) 
+	{
+		#intentionally retain the newline, since we're joining the fields back together
+		($pnum, $pname, $pstat, $pteam) = split(/:/, $statline);
 
-   foreach $statline (@slines) {
-      ($pnum, $pname, $pstat, $pteam) = split(/:/, $statline);
+		if ($pteam ne "999") 
+		{
+			$dstat = ((($pstat == 6) || ($pstat == 9)) ? 1 : (6-$pstat));
+			$mline = join(":", $pteam, $dstat, $pname, $statline);
+			push @player, $mline;
+		}
+	}
 
-      if ($pteam ne "999") {
-         if ($pstat == 6) {
-            $dstat = 1;
-         }
-         elsif ($pstat == 9) {
-            $dstat = 1;
-         }
-         else {
-            $dstat = 6 - $pstat;
-         }
-
-         $mline = join(":", $pteam, $dstat, $pname, $statline);
-
-         $players[$i] = $mline;
-
-         $i++;
-      }
-   }
-
-   @players = sort(@players);
+	@players = sort(@players);
 
    $i = 0;
    $x = 0;
@@ -725,13 +703,10 @@ sub updtteampgs {
       print INDTEAM "</table></center>\n";
 
       select(INDTEAM);
-
       &prnt_pfooter;
-
       select(STDOUT);
 
       close(INDTEAM);
-      chmod(0644, "$teamnum.html");
    }
 }
 
