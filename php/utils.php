@@ -1,5 +1,9 @@
 <?php
 
+// Initialization stuff
+session_start();
+umask(0000);
+
 $teamlist; // don't pre-populate this, it will be populated on first use
 $playerlist; // ditto
 $LgOptions;
@@ -112,4 +116,22 @@ function GetPlayerName($playernum)
 		ReadInPlayerList();
 	return $playerlist[$playernum]->playername;
 }
+
+function RecordUserAgent()
+{
+	if (!isset($_SESSION['UserAgentRecorded'])
+		|| !($_SESSION['UserAgentRecorded'])) 
+	{
+		$_SESSION['UserAgentRecorded'] = 1;
+		
+		$datafile="$$_data_loc$$/browsers.txt";
+		if ($fd = fopen($datafile, "a"))
+		{
+			fwrite($fd, $_SERVER["HTTP_USER_AGENT"]);
+			fwrite($fd, "\n");
+			fclose($fd);
+		}
+	}	
+}
+
 ?>
