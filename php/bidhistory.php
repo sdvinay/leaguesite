@@ -1,9 +1,10 @@
 <?php 
-# $Revision: 1.3 $
-# $Date: 2003/02/27 23:11:12 $
+# $Revision: 1.4 $
+# $Date: 2003-02-28 12:32:50-08 $
 
 require("utils.php"); 
-require("bidclass.php"); 
+require("bidclass.php");
+require("filters.php");
 
 ReadInCGI();
 
@@ -25,10 +26,16 @@ $bids = file("$$_data_loc$$/bids.txt");
 
 <?
 $bidsfound = 0;
+
+$teamFilter = ($team_match == -1) ? new Filter() : new SimpleFilter("tnum", $team_match);
+$playerFilter = ($player_match == -1) ? new Filter() : new SimpleFilter("pnum", $player_match);
+$ourFilter = new AndFilter($teamFilter, $playerFilter);
+
 foreach ($bids as $bline)
 {
 	$bid = new Bid($bline);
-	if ($bid->Match())
+	
+	if ($ourFilter->Match($bid))
 	{
 		++$bidsfound;
 		$bid->Printbid();
