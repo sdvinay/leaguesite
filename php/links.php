@@ -1,6 +1,6 @@
 <?php 
-# $Revision: 1.3 $
-# $Date: 2003/02/26 07:35:49 $
+# $Revision: 1.4 $
+# $Date: 2003/02/26 08:03:27 $
 
 require("utils.php"); 
 ?>
@@ -59,7 +59,7 @@ while (list ($num, $name) = each ($teamnames))
 	<a href="$$_php_url$$/bidpage.php">Bid Page</a><br>
 <? } ?>
 <a href="$$_data_url$$/sold.txt">Sold Players</a><br>
-<a href="$$_data_url$$/bids.txt">Full Bidding History</a><br>
+<a href="$$_static_html_url$$/bidhistory_frameset.html">Bid History</a><br>
 <a href="$$_cgi-bin_url$$/recentbids.cgi">Recent Bids</a><br>
 </p>
 
