@@ -1,7 +1,7 @@
 #!$$perl_command$$
 
-# $Revision: 1.9 $
-# $Date: 2003-03-02 21:58:58-08 $
+# $Revision: 1.10 $
+# $Date: 2003-03-05 17:42:06-08 $
 
 umask(0000);
 
@@ -45,9 +45,10 @@ $faclaim     = "$data_dir/faclaim.txt";
 $relfile     = "$data_dir/release.txt";
 $tradefile   = "$data_dir/trade.txt";
 $runfile     = "$data_dir/auctrun.txt";
+$expense_file = "$data_dir/expenses.csv";
 $releasehtml = "$genhtml_dir/released.html";
 $faclaimhtml = "$genhtml_dir/claims.html";
-$teamsurl    = "$genhtml_url/teams.html";
+$teamsurl    = "$genhtml_url/teams.php";
 $htpasswdfile = "$$_data_loc$$/.htpasswd";
 
 $auctstaturl = $genhtml_url . "/auction.html";
