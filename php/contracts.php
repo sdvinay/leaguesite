@@ -1,9 +1,11 @@
-<html><head><title>Long-term Contracts</title>
-<?php
-require("utils.php");
-?>
+<?php require("utils.php"); ?>
+
+<html>
+<head>
+  <title>Long-term Contracts</title>
   <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
 </head>
+
 <body>
 <center><h2>$$league_name$$</h2>
 <h3>Long-term Contracts</h3></center>

@@ -1,3 +1,5 @@
+<?php require("utils.php"); ?>
+
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html>
 
@@ -5,8 +7,6 @@
 <title>links</title>
 <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
 <base target="body">
-
-<?php require("utils.php"); ?>
 </head>
 
 <body class="leftnav">
