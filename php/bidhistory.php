@@ -1,6 +1,6 @@
 <?php 
-# $Revision: 1.1 $
-# $Date: 2003/02/27 02:51:40 $
+# $Revision: 1.3 $
+# $Date: 2003/02/27 23:11:12 $
 
 require("utils.php"); 
 require("bidclass.php"); 
@@ -13,9 +13,10 @@ $player_match = ($CGI['player'] ? $CGI['player'] : -1);
 $bids = file("$$_data_loc$$/bids.txt");
 
 ?>
-
 <html>
 <head>
+  <title>Bid History</title>
+  <link rel="stylesheet" href="$$_css_url$$/main.css" type="text/css">
 </head>
 
 <body>
