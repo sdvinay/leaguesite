@@ -2,8 +2,8 @@
 ##############################################################################
 # Update.pl
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.11 $
-# $Date: 2003-03-05 15:24:10-08 $
+# $Revision: 1.13 $
+# $Date: 2003-03-05 17:43:00-08 $
 ##############################################################################
 
 require "includes.pl";
@@ -21,7 +21,9 @@ sub updateall
 {
 	&lock() || &error("Could not acquire lock");
 
+	&readinstat;
 	&updtteams;
+	&readinteams;
 	&buildstat;
 	&buildavail;
 	&buildtrades;
@@ -33,12 +35,28 @@ sub updateall
 	&unlock();
 }
 
-
 ###########################################################################
-sub updtteams {
+# just read in the players file once, and then
+# refer to these areas repeatedly
+sub readinstat
+{
 	open(STATFILE, "$stat_file") || &error('Could not open stat file for reading');
 	@slines = <STATFILE>;
 	close(STATFILE);
+}
+
+###########################################################################
+# just read in the players file once, and then
+# refer to these areas repeatedly
+sub readinteams
+{
+	open(TEAMFILE, "$team_file") || &error('Could not open team file for reading');
+	@tlines = <TEAMFILE>;
+	close(TEAMFILE);
+}
+
+###########################################################################
+sub updtteams {
 
 	foreach $statline (@slines) 
 	{
@@ -62,12 +80,8 @@ sub updtteams {
 		}
 	}
 
-	open(TEAMFILE, "$team_file") || &error('Could not open team file for reading');
-	@tlines = <TEAMFILE>;
-	close(TEAMFILE);
-
+	&readinteams;
 	open(TEAMFILE, ">$team_file") || &error('Could not open team file for read/write');
-	
 	foreach $teamline (@tlines) 
 	{
 		trim($teamline);
@@ -91,10 +105,6 @@ sub buildstat {
       ($teamnum, $passwd, $teamname, $towner, $temail, $tstad, $tplown, $tplbid, $tspent, $tbid) = split(/:/, $teamline);
       $team{$teamnum} = $teamname;
    }
-
-   open(STATFILE, "$stat_file") || &error('Could not open stat file for reading');
-   @slines = <STATFILE>;
-   close(STATFILE);
 
 	foreach $sline (@slines) 
 	{
@@ -162,10 +172,6 @@ sub buildstat {
 
 ###########################################################################
 sub buildavail {
-	open(STATFILE,"$stat_file") || &error('Could not open stat file for reading');
-	@slines = <STATFILE>;
-	close(STATFILE);
-
 	foreach $sline (@slines) 
 	{
 		#intentionally retain the newline, since we're joining the fields back together
@@ -284,10 +290,6 @@ sub buildtrades {
       $team{$teamnum} = $teamname;
    }
 
-   open(STATFILE, "$stat_file") || &error('Could not open stat file for reading');
-   @slines = <STATFILE>;
-   close(STATFILE);
-
    foreach $statline (@slines) {
       ($pnum, $pname, $pstatus, $pteam, $psalary) = split(/:/, $statline);
 
@@ -374,10 +376,6 @@ sub buildrelease {
       $team{$teamnum} = $teamname;
    }
 
-   open(STATFILE, "$stat_file") || &error('Could not open stat file for reading');
-   @slines = <STATFILE>;
-   close(STATFILE);
-
    foreach $statline (@slines) {
       ($pnum, $pname, $pstatus, $pteam, $psalary) = split(/:/, $statline);
 
@@ -435,10 +433,6 @@ sub buildclaims {
 
       $team{$teamnum} = $teamname;
    }
-
-   open(STATFILE, "$stat_file") || &error('Could not open stat file for reading');
-   @slines = <STATFILE>;
-   close(STATFILE);
 
    foreach $statline (@slines) {
       ($pnum, $pname, $pstatus, $pteam, $psalary) = split(/:/, $statline);
@@ -591,10 +585,6 @@ sub updtteampgs {
    open(TEAMFILE, "$team_file") || &error('Could not open team file for reading');
    @tlines = <TEAMFILE>;
    close(TEAMFILE);
-
-   open(STATFILE, "$stat_file") || &error('Could not open stat file for reading');
-   @slines = <STATFILE>;
-   close(STATFILE);
 
 	foreach $statline (@slines) 
 	{

@@ -2,8 +2,8 @@
 ##############################################################################
 # fagent.pl - Enter Free Agent Claims
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.4 $
-# $Date: 2003-02-25 23:34:46-08 $
+# $Revision: 1.5 $
+# $Date: 2003-03-05 17:41:46-08 $
 ##############################################################################
 
 require "includes.pl";
@@ -137,11 +137,7 @@ sub fagentbid {
    $bland = 0;
    $tland = 0;
 
-   require $rlfile;
-
-   unless ($league{'cansign'}) {
-      &error("Sorry, no free agent claims allowed at this time.");
-   }
+   $league{'cansign'} || &error("Sorry, no free agent claims allowed at this time.");
 
    &tmchk;
 
