@@ -2,7 +2,7 @@
 require("utils.php");
 require("bidclass.php");
 
-ReadInForm();
+ReadInCGI();
 ?>
 <html>
 <head>
@@ -11,7 +11,7 @@ ReadInForm();
 <body>
 
 <FORM name=bidfilter action="$$_php_url$$/bidhistory.php" method=GET 
-target=<?=$FORM['target']?>
+target=<?=$CGI['target']?>
 >
 <select name="team">
 <option selected value=-1>All Teams

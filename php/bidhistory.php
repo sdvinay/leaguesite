@@ -5,10 +5,10 @@
 require("utils.php"); 
 require("bidclass.php"); 
 
-ReadInForm();
+ReadInCGI();
 
-$team_match = ($FORM['team'] ? $FORM['team'] : -1);
-$player_match = ($FORM['player'] ? $FORM['player'] : -1);
+$team_match = ($CGI['team'] ? $CGI['team'] : -1);
+$player_match = ($CGI['player'] ? $CGI['player'] : -1);
 
 $bids = file("$$_data_loc$$/bids.txt");
 
