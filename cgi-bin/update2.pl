@@ -2,8 +2,8 @@
 ##############################################################################
 # Update.pl                                                                  #
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.5 $
-# $Date: 2003/02/27 02:50:45 $
+# $Revision: 1.6 $
+# $Date: 2003-03-02 21:59:42-08 $
 ##############################################################################
 
 require "includes.pl";
@@ -70,8 +70,7 @@ sub gettime {
    @months = ("January","February","March","April","May","June","July","August","September","October","November","December");
 
    $intdate = join(":", $year, $mnth, $mday, $hour, $min, $sec);
-   $date = "$hour\:$min\:$sec $mnth/$mday/$year";
-   chop($date) if ($date =~ /\n$/);
+   $date = trim("$hour\:$min\:$sec $mnth/$mday/$year");
 
    $long_date = "$months[$mon] $mday, 19$year at $hour\:$min\:$sec";
 }
@@ -105,75 +104,49 @@ sub chktemp {
 
 ###########################################################################
 sub updtteams {
-   open(STATFILE, "$stat_file") || &error('Could not open stat file for reading');
-   @slines = <STATFILE>;
-   close(STATFILE);
+	open(STATFILE, "$stat_file") || &error('Could not open stat file for reading');
+	@slines = <STATFILE>;
+	close(STATFILE);
 
-   $i = 0;
+	foreach $statline (@slines) 
+	{
+		($pnum, $pname, $pstat, $pteam, $psalary) = split(/:/, $statline);
+		if ($pteam ne "999") 
+		{
+			if ($pstat == 5 || $pstat == 6)
+			{
+				$tplown[$pteam]++;
+				$tspent[$pteam] += $psalary;
+			}
+			elsif ($pstat == 9) 
+			{
+				$tspent[$pteam] += $psalary;
+			}
+			else 
+			{
+				$tplbid[$pteam]++;
+				$tbid[$pteam] += $psalary;
+			}
+		}
+	}
 
-   foreach $statline (@slines) {
-      ($pnum, $pname, $pstat, $pteam, $psalary) = split(/:/, $statline);
+	open(TEAMFILE, "$team_file") || &error('Could not open team file for reading');
+	@tlines = <TEAMFILE>;
+	close(TEAMFILE);
 
-      if ($pteam ne "999") {
-         if ($pstat == 6) {
-            $pstat = 5;
-         }
+	open(TEAMFILE, ">$team_file") || &error('Could not open team file for read/write');
+	
+	foreach $teamline (@tlines) 
+	{
+		trim($teamline);
+		($teamnum, $passwd, $teamname, $towner, $temail, $tstad, $tplown, $tplbid, $tspent, $tbid) = split(/:/, $teamline);
+		$tline = join(":", $teamnum, $passwd, $teamname, $towner, $temail,$tstad,
+			int($tplown[$teamnum]), int($tplbid[$teamnum]), int($tspent[$teamnum]), int($tbid[$teamnum]));
+		print TEAMFILE "$tline\n";		
+#		print TEAMFILE "$teamnum:$passwd:$teamname:$towner:$temail:$tstad:$tplown[$teamnum]:$tplbid[$teamnum]:$tspent[$teamnum]:$tbid[$teamnum]\n";
+	}
 
-         $mline = join(":", $pteam, $pstat, $psalary);
-
-         $players[$i] = $mline;
-
-         $i++;
-      }
-   }
-
-   @players = sort(@players);
-   $playcnt = @players;
-
-   open(TEAMFILE, "$team_file") || &error('Could not open team file for reading');
-   @tlines = <TEAMFILE>;
-   close(TEAMFILE);
-
-   $i = 0;
-
-   open(TEAMFILE, ">$team_file") || &error('Could not open team file for read/write');
-
-   foreach $teamline (@tlines) {
-      ($teamnum, $passwd, $teamname, $towner, $temail, $tstad, $tplown, $tplbid, $tspent, $tbid) = split(/:/, $teamline);
-
-      chomp($tbid);
-
-      $tplown = 0;
-      $tplbid = 0;
-      $tspent = 0;
-      $tbid   = 0;
-
-      ($pteam, $pstat, $psalary) = split(/:/, $players[$i]);
-#      $i++;
-
-      while (($pteam eq $teamnum) && ($i < $playcnt)) {
-         $i++;
-
-         if ($pstat == 5) {
-            $tplown++;
-            $tspent += $psalary;
-         }
-         elsif ($pstat == 9) {
-            $tspent += $psalary;
-         }
-         else {
-            $tplbid++;
-            $tbid += $psalary;
-         }
-
-         ($pteam, $pstat, $psalary) = split(/:/, $players[$i]);
-#         $i++;
-      }
-
-      print TEAMFILE "$teamnum:$passwd:$teamname:$towner:$temail:$tstad:$tplown:$tplbid:$tspent:$tbid\n";
-   }
-
-   close(TEAMFILE);
+	close(TEAMFILE);
 }
 
 
