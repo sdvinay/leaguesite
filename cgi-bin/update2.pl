@@ -2,8 +2,8 @@
 ##############################################################################
 # Update.pl                                                                  #
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.6 $
-# $Date: 2003-03-02 21:59:42-08 $
+# $Revision: 1.7 $
+# $Date: 2003-03-05 15:01:57-08 $
 ##############################################################################
 
 require "includes.pl";
@@ -40,47 +40,9 @@ sub updateall {
    }
 }
 
-
-
-
 ###########################################################################
-sub gettime {
-   ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
-
-   $mnth = $mon + 1;
-
-   if ($sec < 10) {
-      $sec = "0$sec";
-   }
-   if ($min < 10) {
-      $min = "0$min";
-   }
-   if ($hour < 10) {
-      $hour = "0$hour";
-   }
-   if ($mnth < 10) {
-      $mnth = "0$mnth";
-   }
-   if ($mday < 10) {
-      $mday = "0$mday";
-   }
-
-   $month = $mon + 1;
-
-   @months = ("January","February","March","April","May","June","July","August","September","October","November","December");
-
-   $intdate = join(":", $year, $mnth, $mday, $hour, $min, $sec);
-   $date = trim("$hour\:$min\:$sec $mnth/$mday/$year");
-
-   $long_date = "$months[$mon] $mday, 19$year at $hour\:$min\:$sec";
-}
-
-
-
-###########################################################################
-sub chktemp {
-   &gettime;
-
+sub chktemp 
+{
    $scount = 0;
 
    while (((-e "$btempfile") || (-e "$atempfile")) && ($scount < $timeout)) {
