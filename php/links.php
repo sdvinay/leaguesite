@@ -1,6 +1,6 @@
 <?php 
-# $Revision: 1.7 $
-# $Date: 2003-03-05 02:57:29-08 $
+# $Revision: 1.8 $
+# $Date: 2003-03-24 23:26:12-08 $
 
 require_once("utils.php"); 
 ?>
@@ -22,7 +22,7 @@ require_once("utils.php");
 <p>
 <a href="$$_php_url$$/main.php">Main Page</a><br>
 <a href="$$_static_html_url$$/constitution.html">Constitution</a><br>
-<a href="$$_generated_html_url$$/teams.html">Team Page</a><br>
+<a href="$$_php_url$$/teams.php">Team Page</a><br>
 <a href="$$messageboard_url$$">Message Board</a><br>
 <a href="$$_static_html_url$$/raise.html">Salary Increases</a><br>
 
@@ -40,7 +40,7 @@ natcasesort ($teamnames);
 reset ($teamnames);
 while (list ($num, $name) = each ($teamnames))
 {
-	echo "<option value=$$_generated_html_url$$/team$num.html>$name\n";
+	echo "<option value=$$_php_url$$/teampage.php?teamnum=$num>$name\n";
 }
 
 ?></select>
