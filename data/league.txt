@@ -13,4 +13,5 @@ cannewplyr~1
 captrade~1
 canbid~1
 leaguefileurl~http://www3.sympatico.ca/craig.burley/TRHL-PreDraft-NS.zip
+leaguefileprotected~0
 auctioneertime~19:00-0800
