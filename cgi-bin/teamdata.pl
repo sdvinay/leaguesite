@@ -2,7 +2,7 @@
 ##############################################################################
 # Teamdata.pl - Team Data Verification                                       #
 # Copyright 1997 Gregory A Greenman                                          #
-# Created 02/03/1997              Last Modified 2/11/2003  by vk             #
+# Created 02/03/1997              Last Modified 2/26/2003  by vk             #
 ##############################################################################
 # Define Variables
 
@@ -182,15 +182,5 @@ sub tmchk {
          last tloop;
       }
    }
-}
-
-# first arg is username (i.e., team #)
-# second arg is password
-sub UpdateHTAccess
-{
-	$cmd = "/usr/bin/htpasswd -b /home/vinay/trhl/public_html/test/data/.htaccess $_[0] $_[1]";
-	$ret = system($cmd);
-	if (($ret == -1) || ($ret >> 8)) { &error("failure to update passwd in .htaccess"); }
-	return 0;
 }
 
