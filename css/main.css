@@ -1,1 +1,53 @@
-/* main.css: main style definitions for leaguesite $Revision$$Date$*/body{	color: #000080;	background-color: #eeeecc;}.leftnav{}.leftnav p{	margin-left: 1em;	margin-top: 0;	margin-bottom: 2pix;}.leftnav h4 { 	margin-left: 0;	margin-top: 0;  	margin-bottom: 0;	padding-left: 1em;	background-color: #003366;	color: #ffffff;}.leftnav h3{	text-align: center;	padding-top: 2pix;}.alert{	text-align: center;	padding: 1em;	color: #800000;	font-size: larger;	font-weight: bold;}
+/* 
+main.css: main style definitions for leaguesite 
+$Revision: 1.3 $
+$Date: 2003/02/26 07:35:28 $
+*/
+
+body
+{
+	color: #000080;
+	background: #eeeecc;
+}
+p, h1, h2, h3, h4, h5, h6
+{
+	margin-left: .5em;
+	margin-right: .5em;
+}
+.leftnav
+{
+}
+.leftnav p
+{
+	margin-left: 1em;
+	margin-top: 0;
+	margin-bottom: 2px;
+}
+.leftnav h4 
+{ 
+	margin-left: 0;
+	margin-top: 0;  
+	margin-bottom: 0;
+	padding-left: 1em;
+	background: #003366;
+	color: #ffffff;
+}
+.leftnav h3
+{
+	text-align: center;
+	padding-top: 2px;
+}
+.alert
+{
+	text-align: center;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	color: #800000;
+	font-size: larger;
+	font-weight: bold;
+}
+p.alert
+{
+	text-align: left;
+}
+
