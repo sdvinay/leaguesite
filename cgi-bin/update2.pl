@@ -1,19 +1,20 @@
 #!$$perl_command$$
 ##############################################################################
-# Update.pl                                                                  #
+# Update.pl
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.9 $
-# $Date: 2003-03-05 15:13:16-08 $
+# $Revision: 1.10 $
+# $Date: 2003-03-05 15:16:20-08 $
 ##############################################################################
 
 require "includes.pl";
 
 ###########################################################################
+@status_labels = ("Available", "New Player", "Do I Hear...", 
+	"Going Once", "Going, Going...", "Sold","Sold","7","8","Penalty");
 
-&updateall;
+###########################################################################
 
-
-1;
+return &updateall;
 
 ###########################################################################
 sub updateall {
@@ -108,8 +109,6 @@ sub updtteams {
 
 ###########################################################################
 sub buildstat {
-   @tstatus = ("Available", "New Player", "Do I Hear...", "Going Once", "Going, Going...", "Sold","6","7","8","Penalty");
-
    open(TEAMFILE, "$team_file") || &error('Could not open team file for reading');
    @tlines = <TEAMFILE>;
    close(TEAMFILE);
@@ -171,7 +170,7 @@ sub buildstat {
 
       print STATHTML "<tr><td>$playnum</td><td>$playname</td>";
 
-      print STATHTML "<td align=center>$tstatus[$pstatus]</td>";
+      print STATHTML "<td align=center>$status_labels[$pstatus]</td>";
       print STATHTML "<td>$pteam</td><td>$pteamname</td><td align=right>$psalary</td>";
       if ($league{'canbid'}) {
           if ($pstatus < 5) {
@@ -198,13 +197,9 @@ sub buildstat {
 
 ###########################################################################
 sub buildavail {
-   @tstatus = ("Available", "New Player", "Do I Hear...", "Going Once", "Going, Going...", "Sold","6","7","8","Penalty");
-
-   open(STATFILE,"$stat_file") || &error('Could not open stat file for reading');
-   @slines = <STATFILE>;
-   close(STATFILE);
-
-   $i = 0;
+	open(STATFILE,"$stat_file") || &error('Could not open stat file for reading');
+	@slines = <STATFILE>;
+	close(STATFILE);
 
 	foreach $sline (@slines) {
 		($playnum, $playname, $pstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec) = split(/:/, trim($sline) );
@@ -214,9 +209,6 @@ sub buildavail {
 	}
 
 	@alines = sort(@alines);
-	
-	$i = 0;
-	$maxline = @alines;
 
 	open(AUCTHTML, ">$availhtml") || &error('Could not open Available html file for writing');
 	$oldfh = select(AUCTHTML);
@@ -234,7 +226,7 @@ sub buildavail {
 			#this list ought to agree with the order of sections printed, though it won't break anything if it's not
 			foreach $section (1,2,3,4,0) 
 			{
-				print "<a href=#section$section>$tstatus[$section]</a>"
+				print "<a href=#section$section>$status_labels[$section]</a>"
 			}
 			continue { print "&nbsp;|&nbsp;"; }
 			print "</p>\n";
@@ -249,12 +241,12 @@ sub buildavail {
 		print "<table border=2>\n";
 		if ($x > 0) 
 		{
-			print "<tr><th colspan=8><font size= +2>$tstatus[$x]</font></th></tr>\n";
+			print "<tr><th colspan=8><font size= +2>$status_labels[$x]</font></th></tr>\n";
 			print "<tr><th>#</th><th>Player</th><th colspan=2>Team</th><th>\$</th><th>Bid</th><th>Quick Bid</th><th>Last Bid</th></tr>\n";
 		}
 		else 
 		{
-			print "<tr><th colspan=4><font size= +2>$tstatus[$x]</font></th></tr>\n";
+			print "<tr><th colspan=4><font size= +2>$status_labels[$x]</font></th></tr>\n";
 			print "<tr><th>#</th><th>Player</th><th>Bid</th><th>Quick Bid</th></tr>\n";
 		}
 		playerloop: foreach $pline (@alines)
@@ -631,8 +623,6 @@ sub updtteamhtml {
 
 ###########################################################################
 sub updtteampgs {
-   @tstatus = ("Available", "New Player", "Do I Hear...", "Going Once", "Going, Going...", "Sold","Sold","7","8","Penalty");
-#   @tstatus = ("Available", "New Player", "Do I Hear...", "Going Once", "Going, Going...", "Sold", "Sold");
 
    open(TEAMFILE, "$team_file") || &error('Could not open team file for reading');
    @tlines = <TEAMFILE>;
@@ -711,7 +701,7 @@ sub updtteampgs {
 
       while (($teamnum eq $pteam) && ($dstat eq "1")) {
          print INDTEAM "<tr><td align=right>$n</td><td>$pnum</td><td>$pname</td>";
-         print INDTEAM "<td align=right>$psalary</td><td>$tstatus[$pstat]</td></tr>\n";
+         print INDTEAM "<td align=right>$psalary</td><td>$status_labels[$pstat]</td></tr>\n";
 
          $i++;
          $n++;
@@ -724,7 +714,7 @@ sub updtteampgs {
 
          while (($teamnum eq $pteam) && ("1234" =~ /$pstat/)) {
             print INDTEAM "<tr><td align=right>$n</td><td>$pnum</td><td>$pname</td>";
-            print INDTEAM "<td align=right>$psalary</td><td>$tstatus[$pstat]</td></tr>\n";
+            print INDTEAM "<td align=right>$psalary</td><td>$status_labels[$pstat]</td></tr>\n";
 
             $i++;
             $n++;
