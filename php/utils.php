@@ -1,7 +1,7 @@
 <?php
 
-# $Revision: 1.4 $
-# $Date: 2003/02/27 23:11:48 $
+# $Revision: 1.5 $
+# $Date: 2003/02/28 20:33:10 $
 
 // Initialization stuff
 session_start();
@@ -26,6 +26,17 @@ function ReadLeagueOptions()
 	}
 }
 ReadLeagueOptions();
+
+function WriteLeagueOptions()
+{
+	global $LgOptions;
+	$fh = fopen("$$_data_loc$$/league.txt", "w"); // TODO error
+	foreach  ($LgOptions as $key => $value)
+	{
+		fwrite($fh, "$key~$value\n"); // TODO error
+	}
+	fclose($fh);
+}
 
 class Team
 {
