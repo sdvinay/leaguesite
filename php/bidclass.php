@@ -1,5 +1,7 @@
 <?
 
+$g_bidhistoryurl = "$$_php_url$$/bidhistory.php";
+
 class Bid
 {
 	var $date;
@@ -18,14 +20,19 @@ class Bid
 		$this->date = $temp_array[0];
 		$this->pnum = $temp_array[2];
 		$this->pname = $temp_array[3];
-		list($this->tnum, $this->tname) = preg_split("/\s+/",$temp_array[1]);
+		preg_match("/^(...)\s+(.*)$/", trim($temp_array[1]), $matches);
+		$this->tnum = $matches[1];
+		$this->tname = $matches[2];
 		$this->newbidamt = $temp_array[4];
 		$this->oldbidamt = $temp_array[5];
 	}
 	
 	function Printbid()
 	{
-		print "$this->bline\n";
+		global $g_bidhistoryurl;
+		printf("%s\t<a href=%s?team=%s>%s %s</a>\t<a href=%s?player=%s>%s\t%s</a>\t%n\t%n\n",
+			$this->date, $g_bidhistoryurl, $this->tnum, $this->tnum, $this->tname, 
+			$g_bidhistoryurl, $this->pnum, $this->pnum, $this->pname, $this->newbidamt, $this->oldbidamt);
 	}
 	
 	function MatchTeam()
