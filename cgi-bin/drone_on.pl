@@ -2,8 +2,8 @@
 ##############################################################################
 # drone_on.pl
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.4 $
-# $Date: 2003-02-25 23:34:43-08 $
+# $Revision: 1.5 $
+# $Date: 2003-03-05 17:41:29-08 $
 ##############################################################################
 use File::Copy;
 
@@ -154,7 +154,7 @@ sub droneprocess {
 
    require "$cgi_dir/update2.pl";
 
-   print "Location: $teamsurl\n\n";
+   print "Location: " . $php_url . "/setleaguefileurl.php\n\n";
 }
 
 
