@@ -1,7 +1,7 @@
 <?php
 
-# $Revision$
-# $Date$
+# $Revision: 1.3 $
+# $Date: 2003/02/26 07:35:58 $
 
 // Initialization stuff
 session_start();
@@ -135,6 +135,20 @@ function RecordUserAgent()
 			fclose($fd);
 		}
 	}	
+}
+
+function ReadInCGI()
+{
+	global $CGI;
+	foreach ($_GET as $key => $value)
+	{
+		$CGI{$key} = $value;
+	}
+	
+	foreach ($_POST as $key => $value)
+	{
+		$CGI{$key} = $value;
+	}
 }
 
 ?>
