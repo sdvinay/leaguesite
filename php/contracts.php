@@ -1,8 +1,10 @@
 <?php 
-# $Revision: 1.3 $
-# $Date: 2003/02/26 07:35:47 $
+# $Revision: 1.4 $
+# $Date: 2003-02-28 23:34:16-08 $
 
-require("utils.php"); 
+require_once("utils.php"); 
+require_once("playerlist.php");
+require_once("teamlist.php");
 ?>
 
 <html>
