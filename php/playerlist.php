@@ -5,6 +5,7 @@
 
 require_once("utils.php");
 require_once("listbase.php");
+require_once("filters.php");
 
 class Player
 {
@@ -34,8 +35,16 @@ class PlayerList extends FileBasedList
 		// TODO this refers to stat2.txt
 		$this->datafile_path = "$$_data_loc$$/stat2.txt";
 		$this->item_class = "Player";
-		
-		$this->Generate("playernum");
+	}
+	
+	function Generate()
+	{
+		parent::Generate("playernum");	
+	}
+	
+	function GenerateWithFilter($filter)
+	{
+		parent::GenerateWithIndexAndFilter("playernum", $filter);
 	}
 
 	function GetPlayer($playernum)
@@ -50,6 +59,7 @@ function GetPlayerName($playernum)
 	if (!isset($plist))
 	{
 		$plist = new PlayerList();
+		$plist->Generate();
 	}
 	
 	$player = $plist->GetPlayer($playernum);
