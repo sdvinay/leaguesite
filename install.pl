@@ -217,7 +217,7 @@ sub installfile
 			$indent_level++;
 			while(<SRC>)
 			{
-				if ($subst && s/\$\$([^\$]*)\$\$/$config_vars{$1}/g) { output("var subst: $1=>$config_vars{$1}"); }
+				while ($subst && s/\$\$([^\$]*)\$\$/$config_vars{$1}/g) { output("var subst: $1=>$config_vars{$1}"); }
 				print DEST $_;
 			}
 			if ($perms) { passive_chmod($perms, $destpath); }
