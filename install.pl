@@ -1,3 +1,5 @@
+#!/usr/bin/perl -w
+
 use strict;
 use File::Copy;
 
@@ -38,25 +40,7 @@ sub main
 	}
 
 	&readconfigvars;
-	
-	# need to read the manifest in completely before starting the install,
-	# so that it's entirely loaded into @config_vars
-	open(MANIFEST, $manifest_filename)  || die ("Could not open manifest file $manifest_filename");
-	while (<MANIFEST>)
-	{
-		my $virtual;
-		my $loc;
-		my $url;
-		my $instructions;
-		chop;
-		($virtual, $loc, $url, $instructions) = split(/\s+/);
-		$loc{$virtual} = $loc;
-		$url{$virtual} = $url;
-		$instructions{$virtual} = $instructions;
-		$config_vars{"_" . $virtual . "_loc"} = $loc;
-		$config_vars{"_" . $virtual . "_url"} = $url;
-	}
-	close (MANIFEST) || die ("file close failed");
+	&readmanifest($manifest_filename);
 	
 	if ($verbose) { &printconfigvars };
 	
@@ -64,8 +48,7 @@ sub main
 #	open(LOGFILE, "> $installlog_filename")   || die ("Could not open log file $installlog_filename for writing");
 	open(LOGFILE, ">/dev/null");
 	
-	my $virtual;
-	foreach $virtual (keys(%loc))
+	foreach my $virtual (keys(%loc))
 	{
 		my $loc = $loc{$virtual};
 		installdir($virtual, $loc) || die ("installation of directory $virtual to $loc failed");
@@ -88,6 +71,33 @@ sub printconfigvars
 	return 1;
 }
 
+sub readmanifest
+{
+	# need to read the manifest in completely before starting the install,
+	# so that it's entirely loaded into @config_vars
+	open(MANIFEST, $_[0])  || die ("Could not open manifest file $_[0]");
+	while (<MANIFEST>)
+	{
+		# strip leading and trailing whitespace
+		s/^\s+//g;
+		s/\s+$//g;
+		# comments start with hash mark
+		next if (m/^#/);
+		
+		my $virtual;
+		my $loc;
+		my $url;
+		my $instructions;
+		($virtual, $loc, $url, $instructions) = split(/\s+/);
+		$loc{$virtual} = $loc;
+		$url{$virtual} = $url;
+		$instructions{$virtual} = $instructions;
+		$config_vars{"_" . $virtual . "_loc"} = $loc;
+		$config_vars{"_" . $virtual . "_url"} = $url;
+	}
+	close (MANIFEST) || die ("file close failed");
+}
+
 #first arg is directory to create
 sub passive_mkdir
 {
@@ -101,6 +111,22 @@ sub passive_mkdir
 	}
 	(-d $dir) || die ("$dir already exists but is not a directory.");
 	return 1;
+}
+
+# this will only expand permissions on a file/directory
+#   if it's already 0755 and you call passive_chmod(dir, 0700),
+#  it will set perms to 0755
+# first arg is new mode (to remain consistent with chmod())
+# second arg is file
+sub passive_chmod
+{
+	my $filename = $_[1];
+	if (-e $filename)
+	{
+		my $old_mode = (stat($filename))[2] & 0777;
+		my $new_mode = $old_mode | $_[0];
+		if ($new_mode != $old_mode) { chmod($new_mode, $filename); }
+	}
 }
 
 #first arg is source directory
@@ -128,7 +154,7 @@ sub installdir
 	}
 
 	passive_mkdir($destdir) || die ("passive_mkdir($destdir) failed");
-	if ($dirperms) { chmod($dirperms, $destdir); }
+	if ($dirperms) { passive_chmod($dirperms, $destdir); }
 
 	opendir(SRCDIR, $srcdir) || die ("Failed to open directory $srcdir");
 	(my @files = readdir(SRCDIR)) || die ("Failed to read directory $srcdir");
@@ -194,7 +220,7 @@ sub installfile
 				if ($subst && s/\$\$([^\$]*)\$\$/$config_vars{$1}/g) { output("var subst: $1=>$config_vars{$1}"); }
 				print DEST $_;
 			}
-			if ($perms) { chmod($perms, $destpath); }
+			if ($perms) { passive_chmod($perms, $destpath); }
 			$indent_level--;
 			close(SRC) || die ("failed to close source file");
 			close(DEST) || die ("failed to close dest file");
