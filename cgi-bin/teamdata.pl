@@ -15,7 +15,7 @@ require "includes.pl";
 $command = "$FORM{'action'}";
 
 if ($command eq "teamdata") { &UpdateData; }
-elsif ($command == "updtteam") { &updtteam; }
+elsif ($command eq "updtteam") { &updtteam; }
 else { &waste; }
 
 

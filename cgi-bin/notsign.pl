@@ -14,7 +14,7 @@ require "includes.pl";
 &parse_form() || &waste();
 $command = "$FORM{'action'}";
 
-($command == "waiveem") ? &waiveem || &waste();
+($command eq "waiveem") ? &waiveem || &waste();
 
 
 ###########################################################################

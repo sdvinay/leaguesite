@@ -179,7 +179,7 @@ sub bidchk {
 	foreach $key (keys(%FORM))
 	{
 		if (($key =~ /^bid(\d+)/ && $FORM{$key} && ($1 > $kMinPlayerNum)) ||
-			($key =~ /qbid(\d+)/ && $FORM{$key} == "QuickBid"))
+			($key =~ /qbid(\d+)/ && $FORM{$key} eq "QuickBid"))
 		{
 			$p = join(":", $1, $FORM{$key});
 			$playarray[$i] = $p;
