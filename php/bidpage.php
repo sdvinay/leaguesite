@@ -15,6 +15,24 @@
 
 <hr>
 
+<?
+$auct_time = strtotime($LgOptions{'auctioneertime'});
+if ($auct_time < time())
+{
+	$auct_time += 86400;
+}
+
+$time_left = $auct_time - time();
+$hours_left = (int)($time_left/3600);
+$minutes_left = (int)(($time_left%3600)/60);
+
+$auct_time_pst = strftime("%I%p", $auct_time);
+$auct_time_est = strftime("%I%p", $auct_time+(3*60*60));
+?>
+
+<div class="alert">Note: the auctioneer runs at <?=$auct_time_pst?> PST/<?=$auct_time_est?> 
+EST.  That is approximately <?=$hours_left?> hours and <?=$minutes_left?> minutes from now.</div>
+
 <form action="$$_cgi-bin_url$$/bidprocess.pl" method="POST">
   <input type="hidden" name="action" value="verify"><div align="center"><center><table border="2">
     <tr>
