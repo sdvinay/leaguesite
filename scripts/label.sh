@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# $Revision: 1.2 $
-# $Date: 2003/02/26 07:36:02 $
+# $Revision: 1.3 $
+# $Date: 2003/02/26 08:04:43 $
 
 prefix="$1"
 if [ $# -lt 2 ]
@@ -21,7 +21,9 @@ then
 		elif [ -f $prefix/$i ]
 		then
 			rcsdiff $prefix/$i
+			if [ -x $prefix/$i ] ; then exe=1;  else exe=; fi
 			ci -l $labelopt $prefix/$i
+			if [ $exe ] ; then chmod u+x $prefix/$i; fi
 		fi
 	done
 fi
