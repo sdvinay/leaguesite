@@ -2,8 +2,8 @@
 ##############################################################################
 # Update.pl                                                                  #
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.8 $
-# $Date: 2003-03-05 15:05:14-08 $
+# $Revision: 1.9 $
+# $Date: 2003-03-05 15:13:16-08 $
 ##############################################################################
 
 require "includes.pl";
@@ -207,7 +207,7 @@ sub buildavail {
    $i = 0;
 
 	foreach $sline (@slines) {
-		($playnum, $playname, $pstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec) = split(/:/, $sline);
+		($playnum, $playname, $pstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec) = split(/:/, trim($sline) );
 		$dstatus = ($pstatus == 6) ? 5 : $pstatus;
 		$alines[$i] = join(":", $dstatus, $playname, $playnum, $pstatus, $pteam, $psalary, $byr, $bmon, $bday, $bhr, $bmin, $bsec);
 		$i++;
