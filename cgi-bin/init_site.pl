@@ -2,8 +2,8 @@
 
 ##############################################################################
 # init_site.pl -- Runs upon installation, initializes the site
-# $Revision$
-# $Date$
+# $Revision: 1.4 $
+# $Date: 2003/02/26 08:03:00 $
 
 require "includes.pl";
 
@@ -18,5 +18,7 @@ close(TEAMFILE);
 foreach $tline (@tlines)
 {
 	($teamnum,$passwd) = split(/:/,$tline);
-	&UpdateHTAccess($teamnum, $passwd) || die("failure to update passwd in .htaccess");
+	&UpdateHTPasswd($teamnum, $passwd) || die("failure to update passwd in .htaccess");
 }
+
+&UpdateHTPasswd("drone", $league{'dronepw'});

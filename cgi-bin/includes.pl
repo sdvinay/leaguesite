@@ -1,7 +1,7 @@
 #!$$perl_command$$
 
-# $Revision: 1.6 $
-# $Date: 2003/02/26 07:34:47 $
+# $Revision: 1.7 $
+# $Date: 2003/02/27 03:31:12 $
 
 umask(0000);
 
@@ -47,6 +47,7 @@ $runfile     = "$data_dir/auctrun.txt";
 $releasehtml = "$genhtml_dir/released.html";
 $faclaimhtml = "$genhtml_dir/claims.html";
 $teamsurl    = "$genhtml_url/teams.html";
+$htpasswdfile = "$$_data_loc$$/.htpasswd";
 
 $auctstaturl = $genhtml_url . "/auction.html";
 $availurl	 = $genhtml_url . "/available.html";
@@ -194,9 +195,9 @@ sub waste {
 ###########################################################################
 # first arg is username (i.e., team #)
 # second arg is password
-sub UpdateHTAccess
+sub UpdateHTPasswd
 {
-	$cmd = "$$htpasswd_loc$$ -b $$_data_loc$$/.htpasswd $_[0] $_[1]";
+	$cmd = "$$htpasswd_loc$$ -b $htpasswdfile $_[0] $_[1]";
 	$ret = system($cmd);
 	if (($ret == -1) || ($ret >> 8)) { return 0; }
 	return 1;

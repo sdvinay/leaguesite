@@ -2,8 +2,8 @@
 ##############################################################################
 # Teamdata.pl - Team Data Verification                                       #
 # Copyright 1997 Gregory A Greenman
-# $Revision$
-# $Date$
+# $Revision: 1.7 $
+# $Date: 2003/02/26 07:35:09 $
 ##############################################################################
 
 require "includes.pl";
@@ -139,7 +139,7 @@ sub updtteams {
       {
       	if ($passwd ne $FORM{'newpass'})
       	{
-      		&UpdateHTAccess($teamnum, $FORM{'newpass'});
+      		&UpdateHTPasswd($teamnum, $FORM{'newpass'});
       	}
          $passwd = $FORM{'newpass'};
          $teamname = $FORM{'newname'};
