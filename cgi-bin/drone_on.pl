@@ -1,4 +1,4 @@
-#!$$perl_loc$$
+#!$$perl_command$$
 ##############################################################################
 # DroneOn.pl                                                                 #
 # Copyright 1997 Gregory A Greenman                                          #

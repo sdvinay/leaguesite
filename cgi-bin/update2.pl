@@ -1,4 +1,4 @@
-#!$$perl_loc$$
+#!$$perl_command$$
 ##############################################################################
 # Update.pl                                                                  #
 # Copyright 1997 Gregory A Greenman                                          #

@@ -1,4 +1,4 @@
-#!$$perl_loc$$
+#!$$perl_command$$
 ##############################################################################
 # Keepers.pl - Entry of Players to be Retained                               #
 # Copyright 1997 Gregory A Greenman                                          #

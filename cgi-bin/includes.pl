@@ -1,4 +1,4 @@
-#!$$perl_loc$$
+#!$$perl_command$$
 
 umask(0000);
 

@@ -1,3 +1,4 @@
+#!$$perl_command$$
 ##############################################################################
 # Readleague.pl - Read League Parameters                                     #
 # Copyright 1997 Gregory A Greenman                                          #

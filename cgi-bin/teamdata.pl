@@ -1,4 +1,4 @@
-#!$$perl_loc$$
+#!$$perl_command$$
 ##############################################################################
 # Teamdata.pl - Team Data Verification                                       #
 # Copyright 1997 Gregory A Greenman                                          #

@@ -1,4 +1,4 @@
-#!$$perl_loc$$ -I$$_cgi-bin_loc$$
+#!$$perl_command$$
 
 ##############################################################################
 # init_site.pl -- Runs upon installation, initializes the site

@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!$$perl_command$$
 ##############################################################################
 # notsign.pl - Release players who have not been re-signed                   #
 # Copyright 1997 Gregory A Greenman                                          #

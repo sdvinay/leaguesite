@@ -1,4 +1,4 @@
-#!$$perl_loc$$
+#!$$perl_command$$
 ##############################################################################
 # Tradeem.pl - Verify Trades are legal                                       #
 # Copyright 1997 Gregory A Greenman                                          #

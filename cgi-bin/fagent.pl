@@ -1,4 +1,4 @@
-#!$$perl_loc$$
+#!$$perl_command$$
 ##############################################################################
 # Fagent.pl - Enter Free Agent Claims                                        #
 # Copyright 1998 Gregory A Greenman                                          #
