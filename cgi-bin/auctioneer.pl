@@ -13,15 +13,7 @@ require "includes.pl";
 
 $timeout = 4;
 
-# Done
-###########################################################################
-
-&parse_form() || &waste();
-
-$command = "$FORM{'action'}";
-($command == "sellem") ?  &sellem() : &waste();
-
-
+&sellem;
 
 ###########################################################################
 sub sellem {
