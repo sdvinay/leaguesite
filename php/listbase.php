@@ -1,6 +1,6 @@
 <?
-// $Revision$
-// $Date$
+// $Revision: 1.3 $
+// $Date: 2003-03-24 23:41:44-08 $
 
 // Generic list class, used to encapsulate a list
 // Derive off of this to make more complex lists
@@ -43,6 +43,27 @@ class FileBasedList extends ListBase
 				$obj->$field_name = $data_item;
 			}
 			$this->myArray[$obj->$index_field_name] = $obj;
+		}
+	}
+
+	function GenerateWithIndexAndFilter($index_field_name, $filter)
+	{
+		$lines = @file($this->datafile_path);
+		list($dummy, $format_line) = each($lines);
+		$fields  = split(":", trim($format_line));
+		
+		while (list($dummy, $data_line) = each($lines))
+		{
+			trim ($data_line);
+			$data_as_list = split(":", $data_line);
+			$obj = new $this->item_class;
+			while (list($i, $data_item) = each($data_as_list))
+			{
+				$field_name = $fields[$i];
+				$obj->$field_name = $data_item;
+			}
+			if ($filter->Match($obj))
+				$this->myArray[$obj->$index_field_name] = $obj;
 		}
 	}
 }
