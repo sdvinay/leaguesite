@@ -1,6 +1,6 @@
 <?php 
-# $Revision$
-# $Date$
+# $Revision: 1.3 $
+# $Date: 2003/02/26 07:35:49 $
 
 require("utils.php"); 
 ?>
@@ -79,7 +79,11 @@ while (list ($num, $name) = each ($teamnames))
 <a href="$$_generated_html_url$$/claims.html">Free Agent Signings</a><br>
 <a href="$$_generated_html_url$$/released.html">Releases</a><br>
 <a href="$$_php_url$$/contracts.php">Long-term Contracts</a><br>
-<a href=<?= $LgOptions["leaguefileurl"] ?>>League File</a><br>
+<? $LgFileURL = ($LgOptions['leaguefileprotected'] 
+	? $LgOptions["leaguefileurl"] 
+	: "$$_restricted_url$$/redirect_leaguefile.php" ); 
+?>
+<a href=<?=$LgFileURL?>>League File</a><br>
 </p>
 
 <h4>Administrative Stuff</h4>
