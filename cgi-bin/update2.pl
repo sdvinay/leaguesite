@@ -298,6 +298,8 @@ sub buildavail {
 	
 	&printhtmlheader("Available Players", 0);
 	
+	print "<div class=\"alert\">Note: the auctioneer runs at 7pm PST/10pm EST</div>\n";
+	
 	#links to jump to particular sections
 	sub printinternallinks
 	{
