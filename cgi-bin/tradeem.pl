@@ -2,8 +2,8 @@
 ##############################################################################
 # Tradeem.pl - Verify Trades are legal                                       #
 # Copyright 1997 Gregory A Greenman
-# $Revision$
-# $Date$
+# $Revision: 1.4 $
+# $Date: 2003-02-25 23:35:12-08 $
 ##############################################################################
 
 require "includes.pl";
@@ -13,9 +13,13 @@ require "includes.pl";
 &parse_form || &waste;
 $command = "$FORM{'action'}";
 
+&lock();
 if ($command eq "tradeem") { &tradeem; }
 elsif ($command eq "tradeupdt") { &tradeupdt; }
 else { &waste; }
+&unlock();
+
+return;
 
 
 ###########################################################################

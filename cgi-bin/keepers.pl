@@ -1,22 +1,22 @@
 #!$$perl_command$$
 ##############################################################################
-# Keepers.pl - Entry of Players to be Retained                               #
-# $Revision$
-# $Date$
+# Keepers.pl - Entry of Players to be Retained
+# $Revision: 1.4 $
+# $Date: 2003-02-25 23:34:59-08 $
 ##############################################################################
-# Define Variables
 
 require "includes.pl";
 
-# Done
 ###########################################################################
 
 &parse_form() || &waste();
 $command = "$FORM{'action'}";
 
+&lock();
 if ($command eq "editkeepers") { &editkeepers; }
 elsif ($command eq "postkeepers") { &postkeepers; }
 else { &waste; }
+&unlock();
 
 
 ###########################################################################

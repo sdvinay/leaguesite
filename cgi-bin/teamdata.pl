@@ -1,9 +1,9 @@
 #!$$perl_command$$
 ##############################################################################
-# Teamdata.pl - Team Data Verification                                       #
+# Teamdata.pl - Team Data Verification and update
 # Copyright 1997 Gregory A Greenman
-# $Revision: 1.7 $
-# $Date: 2003/02/26 07:35:09 $
+# $Revision: 1.8 $
+# $Date: 2003-03-01 00:13:40-08 $
 ##############################################################################
 
 require "includes.pl";
@@ -13,9 +13,11 @@ require "includes.pl";
 &parse_form || &waste;
 $command = "$FORM{'action'}";
 
+&lock();
 if ($command eq "teamdata") { &UpdateData; }
 elsif ($command eq "updtteam") { &updtteam; }
 else { &waste; }
+&unlock();
 
 
 ###########################################################################

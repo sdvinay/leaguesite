@@ -2,8 +2,8 @@
 ##############################################################################
 # Auctioneer.pl
 # Copyright 1997 Gregory A Greenman
-# $Revision$
-# $Date$
+# $Revision: 1.5 $
+# $Date: 2003-02-25 23:34:25-08 $
 ##############################################################################
 use File::Copy;
 
@@ -12,35 +12,19 @@ use File::Copy;
 
 require "includes.pl";
 
-$timeout = 4;
-
 &sellem;
 
 ###########################################################################
-sub sellem {
-   $goforit = 0;
-
-   require $rlfile;
-
-   unless ($league{'canbid'}) {
-      &error("Sorry, no Bids allowed at this time.");
-   }
-
-   &chktemp;
-
-   if ($goforit) {
-
+sub sellem 
+{
+	$league{'canbid'} || die("The auction is not active right now.");
+	&lock() || die("Failed to acquire lock");
+	
 	&updtstat;
-
 	&soldfile;
-
-	unlink "$atempfile";
-
 	require "$cgi_dir/update2.pl";
-   }
-   else {
-      &error('???');
-   }
+	
+	&unlock();
 }
 
 

@@ -1,14 +1,12 @@
 #!$$perl_command$$
 ##############################################################################
-# notsign.pl - Release players who have not been re-signed                   #
-# $Revision$
-# $Date$
+# notsign.pl - Release players who have not been re-signed
+# $Revision: 1.5 $
+# $Date: 2003-02-25 23:35:02-08 $
 ##############################################################################
-# Define Variables
 
 require "includes.pl";
 
-# Done
 ###########################################################################
 
 &parse_form() || &waste();
@@ -18,20 +16,13 @@ $command = "$FORM{'action'}";
 
 
 ###########################################################################
-sub waiveem {
-   $bland = 0;
-
-   require $rlfile;
-
-   if ($league{'canresign'}) {
-      &error("Sorry, players can still be re-signed.");
-   }
-   
-   &processwaivers;
-
-print "Location: $teamsurl\n\n";
-
-#   exec "/home/www/spencersoft/cgi-bin/trhl/update.pl";
+sub waiveem 
+{
+	&lock();
+	$league{'canresign'} && &error("Sorry, players can still be re-signed.");
+	&processwaivers;
+	&unlock();
+	print "Location: $teamsurl\n\n";
 }
 
 

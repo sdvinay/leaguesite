@@ -17,46 +17,21 @@ require "includes.pl";
 return &updateall;
 
 ###########################################################################
-sub updateall {
-   if (&chktemp()) {
-      &updtteams;
-      &buildstat;
-      &buildavail;
-      &buildtrades;
-      &buildrelease;
-      &buildclaims;
-      &updtteamhtml;
-      &updtteampgs;
-
-      unlink "$atempfile";
-   }
-   else {
-#      &error('???');
-   }
-}
-
-###########################################################################
-sub chktemp 
+sub updateall 
 {
-   $scount = 0;
+	&lock() || &error("Could not acquire lock");
 
-   while (((-e "$btempfile") || (-e "$atempfile")) && ($scount < $timeout)) {
-      sleep 2;
-      $scount++;
-   }
+	&updtteams;
+	&buildstat;
+	&buildavail;
+	&buildtrades;
+	&buildrelease;
+	&buildclaims;
+	&updtteamhtml;
+	&updtteampgs;
 
-   if ($scount >= $timeout) {
-      &error('Time Out - Try Again Later');
-   }
-
-   open(WAITFILE, ">$atempfile") || &error('Cannot open Wait File for Read/Write');
-   print WAITFILE "$year:$mnth:$mday:$hour:$min:$sec\n";
-   close(WAITFILE);
-
-   return 1;
+	&unlock();
 }
-
-
 
 
 ###########################################################################
@@ -630,7 +605,7 @@ sub updtteampgs {
 		{
 			$dstat = ((($pstat == 6) || ($pstat == 9)) ? 1 : (6-$pstat));
 			$mline = join(":", $pteam, $dstat, $pname, $statline);
-			push @player, $mline;
+			push @players, $mline;
 		}
 	}
 

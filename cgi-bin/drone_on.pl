@@ -1,17 +1,14 @@
 #!$$perl_command$$
 ##############################################################################
-# DroneOn.pl                                                                 #
+# drone_on.pl
 # Copyright 1997 Gregory A Greenman
-# $Revision$
-# $Date$
+# $Revision: 1.4 $
+# $Date: 2003-02-25 23:34:43-08 $
 ##############################################################################
 use File::Copy;
 
-# Define Variables
-
 require "includes.pl";
 
-# Done
 ###########################################################################
 
 &parse_form || &waste;
@@ -21,41 +18,23 @@ $passwd = "$FORM{'DronePassword'}";
 ($passwd eq $league{'dronepw'}) || &error("Incorrect drone password. Go back and try again.");
 
 # dispatch
+&lock();
 $command = "$FORM{'action'}";
 if ($command eq "droneon") { &droneon; }
 elsif ($command eq "droneprocess") { &droneprocess; }
 else { &waste(); }
+&unlock();
+return;
 
 
 ###########################################################################
-sub droneon {
-   $goforit = 0;
-
-   require $rlfile;
-
-   &chktemp;
-
-   if ($goforit) {
-
-      &getteaminfo;
-
-      &getplyrinfo;
-
-      &processfagents;
-
-      if ($numties) {
-         &createtiebreakscreen;
-      }
-      else {
-         &createscreen;
-      }
-   }
-   else {
-      &error('???');
-   }
+sub droneon 
+{
+	&getteaminfo;
+	&getplyrinfo;
+	&processfagents;
+	$numties ? &createtiebreakscreen() : &createscreen();
 }
-
-
 
 
 ###########################################################################
@@ -511,23 +490,6 @@ sub createscreen {
 
    print "</form></center>\n";
    &printhtmlfooter;
-}
-
-
-###########################################################################
-sub chktemp {
-   $goforit = 1;
-
-   if (-e "$dtempfile") {
-   	&error('Drone update already in process');
-   }
-   else {
-      open(WAITFILE, ">$dtempfile") || &error("Cannot open Wait File ($dtempfile) for Read/Write");
-      print WAITFILE "$year:$mnth:$mday:$hour:$min:$sec\n";
-      close(WAITFILE);
-
-      $goforit = 1;
-   }
 }
 
 

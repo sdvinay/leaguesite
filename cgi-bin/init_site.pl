@@ -2,10 +2,13 @@
 
 ##############################################################################
 # init_site.pl -- Runs upon installation, initializes the site
-# $Revision: 1.4 $
-# $Date: 2003/02/26 08:03:00 $
+# $Revision: 1.5 $
+# $Date: 2003-03-01 00:13:23-08 $
 
 require "includes.pl";
+
+&force_unlock();
+&lock();
 
 #generate all the HTML
 require "update2.pl";
@@ -22,3 +25,5 @@ foreach $tline (@tlines)
 }
 
 &UpdateHTPasswd("drone", $league{'dronepw'});
+
+&unlock();

@@ -1,30 +1,28 @@
 #!$$perl_command$$
 ##############################################################################
-# Releaseem.pl - Verify Releases are legal                                   #
+# Releaseem.pl - Verify Releases are legal
 # Copyright 1997 Gregory A Greenman
-# $Revision$
-# $Date$
+# $Revision: 1.4 $
+# $Date: 2003-02-25 23:35:07-08 $
 ##############################################################################
-# Define Variables
 
 require "includes.pl";
 
-# Done
 ###########################################################################
 
 &parse_form || &waste;
 $command = "$FORM{'action'}";
 
+&lock();
 if ($command eq "releaseem") { &releaseem; }
 elsif ($command eq "releaseupdt") {	&releaseupdt; }
 else { &waste(); }
+&unlock();
 
 
 ###########################################################################
 sub releaseem {
    $bland = 0;
-
-   require $rlfile;
 
    unless ($league{'canrelease'}) {
       &error("Sorry, no releases allowed at this time.");
@@ -320,4 +318,3 @@ sub relchk {
       }
    }
 }
-

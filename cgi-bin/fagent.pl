@@ -1,25 +1,23 @@
 #!$$perl_command$$
 ##############################################################################
-# Fagent.pl - Enter Free Agent Claims                                        #
+# fagent.pl - Enter Free Agent Claims
 # Copyright 1997 Gregory A Greenman
-# $Revision$
-# $Date$
+# $Revision: 1.4 $
+# $Date: 2003-02-25 23:34:46-08 $
 ##############################################################################
-# Define Variables
 
 require "includes.pl";
 
-$timeout = 4;
-
-# Done
 ###########################################################################
 
 &parse_form() || &waste();
 $command = "$FORM{'action'}";
 
+&lock();
 if ($command eq "fagent") { &fagent; }
 elsif ($command eq "fagentbid") { &fagentbid; }
 else { &error("You are wasting my time!"); }
+&unlock();
 
 
 ###########################################################################
@@ -29,10 +27,6 @@ sub fagent {
    require $rlfile;
 
    unless ($league{'cansign'}) {
-      &error("Sorry, no free agent claims allowed at this time.");
-   }
-
-   if (-e $dtempfile) {
       &error("Sorry, no free agent claims allowed at this time.");
    }
 
@@ -146,10 +140,6 @@ sub fagentbid {
    require $rlfile;
 
    unless ($league{'cansign'}) {
-      &error("Sorry, no free agent claims allowed at this time.");
-   }
-
-   if (-e $dtempfile) {
       &error("Sorry, no free agent claims allowed at this time.");
    }
 
