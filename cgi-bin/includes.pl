@@ -1,7 +1,7 @@
 #!$$perl_command$$
 
-# $Revision: 1.8 $
-# $Date: 2003/03/01 08:13:08 $
+# $Revision: 1.9 $
+# $Date: 2003-03-02 21:58:58-08 $
 
 umask(0000);
 
@@ -21,6 +21,7 @@ $teamdir     = $genhtml_dir;
 $rlfile      = "$cgi_dir/readleague.pl";
 $team_file   = "$data_dir/teams.txt";
 $stat_file   = "$data_dir/stat.txt";
+$lockfile	 = "$data_dir/lock.txt";
 $atempfile   = "$data_dir/auctinprog.wait";
 $btempfile   = "$data_dir/bidinprog.wait";
 $dtempfile   = "$data_dir/droneinprog.wait";
@@ -56,7 +57,6 @@ $bidhistoryurl = $php_url . "/bidhistory.php";
 
 require $rlfile;
 
-$timeout = 4;
 $kMinPlayerNum = 10000;
 
 # first arg is title/h2
@@ -127,22 +127,27 @@ sub waste {
 
 
 ###########################################################################
-sub error {
-   $error = $_[0];
-
-   print "Content-type: text/html\n\n";
-   print "<html><head><title>$$league_name$$</title></head>\n";
-   print "<body><center><h1>$$league_name$$</h1></center>\n";
-   print "<h2>Error:</h2><br>\n";
-   print "$error\n";
-
+sub error 
+{
+	&unlock();
+	$error = $_[0];
+	
+	print "Content-type: text/html\n\n";
+	print "<html><head><title>$$league_name$$</title></head>\n";
+	print "<body><center><h1>$$league_name$$</h1></center>\n";
+	print "<h2>Error:</h2><br>\n";
+	print "$error\n";
+	
+	print "<!--\n";
 	foreach $key (keys(%ENV))
 	{
 		print "$key => $ENV{$key} <br> \n";
 	}
-   print "</body></html>\n";
-
-   exit;
+	print "-->\n";
+	print "</body></html>\n";
+	
+	
+	exit;
 }
 
 ###########################################################################
@@ -184,13 +189,9 @@ sub parse_form {
 }
 
 ###########################################################################
-sub waste {
-   print "Content-type: text/html\n\n";
-   print "<html><head><title>Waste</title></head>\n";
-   print "<body><center><h1>You Are Wasting My Time!!!</h1></center>\n";
-   print "</center><hr><p>\n";
-   print "\$command = \"$command\"";
-   print "</body></html>\n";
+sub waste 
+{
+	&error("waste");
 }
 
 ###########################################################################
@@ -204,3 +205,89 @@ sub UpdateHTPasswd
 	return 1;
 }
 
+# like php's trim function, this strips whitespace from
+# the beginning and end of a string
+# safer than chop
+sub trim
+{
+	$str = $_[0];
+	$str =~ s/^\s*(.*[^\s])\s*$/\1/g;
+	return $str;
+}
+
+# this is an all-purpose lock, which should be acquired
+#  before reading or writing any data/html files
+# implemented by touching a file
+# first arg is timeout in sec, default value is 4
+sub lock
+{
+	my $sleepcount = 0;
+	my $timeout = $_[0] ? $_[0] : 4;
+
+	while (!(&trylock()) && ($sleepcount < $timeout)) 
+	{
+		sleep 1;
+		$sleepcount++;
+	}
+
+	if ($sleepcount >= $timeout) 
+	{
+		&error('Time Out - Try Again Later');
+	}
+
+	return 1;
+}
+
+# if the lock file doesn't exist, then create it
+# if it does exist, check to see if we already own it
+# if it exists, but we don't own it, then we fail
+sub trylock
+{
+	if (-e "$lockfile")
+	{
+		my $found = 0;
+		open(LOCKFILE, "$lockfile") || &error('Cannot open lock file for read');
+		while(<LOCKFILE>)
+		{
+			if (/$$/)
+			{
+				return 1;
+			}
+		}
+		close(LOCKFILE);
+		return 0;
+	}
+	
+	open(LOCKFILE, ">$lockfile") || &error('Cannot open lock file for Read/Write');
+	print LOCKFILE "$$\n";
+	close(LOCKFILE);
+}
+
+sub unlock
+{
+	if (-e "$lockfile")
+	{
+		my $found = 0;
+		open(LOCKFILE, "$lockfile") || &error('Cannot open lock file for read');
+		while(<LOCKFILE>)
+		{
+			if (/$$/)
+			{
+				$found = 1;
+				break;
+			}
+		}
+		close(LOCKFILE);
+		
+		$found || &error("Somebody else owns the lock.");
+		&force_unlock();	
+	}
+}
+
+sub force_unlock
+{
+	if (-e "$lockfile")
+	{
+		unlink($lockfile) || &error ("Failed to remove lock file");
+	}
+}
