@@ -1,60 +1,14 @@
 <?php 
-# $Revision$
-# $Date$
+# $Revision: 1.1 $
+# $Date: 2003/02/27 02:51:40 $
 
 require("utils.php"); 
+require("bidclass.php"); 
 
-$team_match = ($_POST['team'] ? $_POST['team'] : $_GET['team']);
-$player_match = ($_POST['player'] ? $_POST['player'] : $_GET['player']);
+ReadInForm();
 
-class Bid
-{
-	var $date;
-	var $pnum;
-	var $pname;
-	var $tnum;
-	var $tname;
-	var $newbidamt;
-	var $oldbidamt;
-	var $bline;
-	
-	function Bid($in_bline)
-	{
-		$this->bline = trim($in_bline);
-		$temp_array = preg_split("/\t+/", $this->bline);
-		$this->date = $temp_array[0];
-		$this->pnum = $temp_array[2];
-		$this->pname = $temp_array[3];
-		list($this->tnum, $this->tname) = preg_split("/\s+/",$temp_array[1]);
-		$this->newbidamt = $temp_array[4];
-		$this->oldbidamt = $temp_array[5];
-	}
-	
-	function Printbid()
-	{
-		print "$this->bline\n";
-	}
-	
-	function MatchTeam()
-	{
-		global $team_match;
-		$match = ($team_match ? ($team_match == $this->tnum) : 1);
-		return $match;
-	}
-
-	function MatchPlayer()
-	{
-		global $player_match;
-		$match = ($player_match ? ($player_match == $this->pnum) : 1);
-		return $match;
-	}
-	
-	function Match()
-	{
-		$x = $this->MatchTeam();
-		return ( $x && $this->MatchPlayer());
-	}
-}
+$team_match = ($FORM['team'] ? $FORM['team'] : -1);
+$player_match = ($FORM['player'] ? $FORM['player'] : -1);
 
 $bids = file("$$_data_loc$$/bids.txt");
 
@@ -69,13 +23,20 @@ $bids = file("$$_data_loc$$/bids.txt");
 <pre>
 
 <?
+$bidsfound = 0;
 foreach ($bids as $bline)
 {
 	$bid = new Bid($bline);
 	if ($bid->Match())
 	{
+		++$bidsfound;
 		$bid->Printbid();
 	}
+}
+
+if ($bidsfound == 0)
+{
+	print("No matching bids.\n");
 }
 ?>
 
