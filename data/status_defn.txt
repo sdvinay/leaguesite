@@ -1,0 +1,9 @@
+snum:slabel
+0:Unowned
+1:New Bid
+2:Do I Hear?
+3:Going Once...
+4:Going, Going...
+5:Sold
+6:Sold
+9:Waiver
