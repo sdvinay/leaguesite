@@ -1,0 +1,9 @@
+AuthUserFile $$_data_loc$$/.htpasswd
+AuthName "$$league_abbr$$ restricted area"
+AuthGroupFile /dev/null
+AuthType Basic
+
+<LIMIT GET POST>
+require valid-user
+</LIMIT>
+

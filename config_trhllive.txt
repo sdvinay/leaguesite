@@ -8,7 +8,6 @@ htpasswd_loc=/usr/bin/htpasswd
 perl_command=$$perl_loc$$ -I$$_cgi-bin_loc$$
 
 league_name=Three Run Homer League
-league_abbr=TRHL
 messageboard_url=http://trhl.doorstop.net/phorum/list.php?f=4
 
 init_script=$$_cgi-bin_loc$$/init_site.pl

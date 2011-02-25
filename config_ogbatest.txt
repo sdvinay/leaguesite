@@ -1,5 +1,5 @@
-# $Revision: 1.1 $
-# $Date: 2003-04-08 17:53:39-07 $
+# $Revision: 1.2 $
+# $Date: 2003/05/12 22:56:53 $
 
 perl_loc=/usr/bin/perl
 sh_loc=/bin/sh
